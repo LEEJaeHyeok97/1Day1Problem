@@ -7,8 +7,8 @@ for _ in range(T):
     N, M = map(int, input().split())
     properties = list(map(int, input().split()))
     dq = deque((priority, idx) for idx, priority in enumerate(properties))
-
     count = 0
+
 
     while True:
         current = dq.popleft()
