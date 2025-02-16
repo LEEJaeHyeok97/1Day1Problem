@@ -1,17 +1,21 @@
 N = int(input())
-
 M = int(input())
 
-S = input()
+s = input()
 
+ans = 0
+i = 0
 cnt = 0
-from_n = "I" + "OI" * N
-# print(from_n)
-len_from_n = len(from_n)
 
-for i in range(0, M - len_from_n + 1):
-    # print(S[i:i + len_from_n])
-    if from_n == S[i:i + len_from_n]:
+while i < M - 1:
+    if s[i:i+3] == 'IOI':
+        i += 2
         cnt += 1
+        if cnt == N:
+            ans += 1
+            cnt -= 1
+    else:
+        i += 1
+        cnt = 0
 
-print(cnt)
+print(ans)
