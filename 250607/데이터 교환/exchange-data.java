@@ -8,7 +8,7 @@ public class Main {
         b = a;
         tmp2 = c;
         c = tmp1;
-        a = tmp1;
+        a = tmp2;
 
         System.out.println(a);
         System.out.println(b);
