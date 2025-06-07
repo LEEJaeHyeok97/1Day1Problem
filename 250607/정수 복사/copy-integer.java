@@ -6,6 +6,7 @@ public class Main {
 
         b = a;
 
+        System.out.printf("%d %d\n", a, b);
         System.out.println(a*b);
     }
 }
