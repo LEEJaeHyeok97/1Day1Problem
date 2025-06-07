@@ -4,7 +4,7 @@ public class Main {
         double ft = 30.48;
         int mi = 160934;
 
-        System.out.printf("9.2ft = %.1f", ft * 9.2);
-        System.out.printf("1.3mi = %.1f", mi * 1.3);
+        System.out.printf("9.2ft = %.1fcm", ft * 9.2);
+        System.out.printf("1.3mi = %.1fcm", mi * 1.3);
     }
 }
