@@ -6,8 +6,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         double ft = 30.48;
-        int N = sc.nextDouble();
+        double N = sc.nextDouble();
 
-        System.out.println(N * ft);
+        System.out.printf("%.1f", N * ft);
     }
 }
