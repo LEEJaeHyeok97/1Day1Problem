@@ -6,7 +6,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        c = sc.next();
+        String c = sc.next();
         System.out.println(c.charAt(0));
     }
 }
