@@ -1,35 +1,25 @@
-from collections import deque
-from collections import defaultdict
+import sys
+sys.setrecursionlimit(10**6)
 
 N = int(input())
+edges = [list(map(int, input().split())) for _ in range(N - 1)]
 
-graph = defaultdict(list)
+tree = {i: [] for i in range(1, N + 1)}
+
+for edge in edges:
+    s, e = edge
+    tree[s].append(e)
+    tree[e].append(s)
 
 parents = [0] * (N + 1)
+def traverse(cur, parent):
 
-for _ in range(N - 1):
-    a, b = map(int, input().split())
-    graph[a].append(b)
-    graph[b].append(a)
+    for next in tree[cur]:
+        if next == parent:
+            continue
+        parents[next] = cur
+        traverse(next, cur)
 
+traverse(1, 0)
 
-def bfs():
-    queue = deque([1])
-    visited = [False] * (N+1)
-    visited[1] = True
-
-    while queue:
-        cur_v = queue.popleft()
-        for i in graph[cur_v]:
-            if not visited[i]:
-                # visited.append(i)
-                # queue.append(i)
-                visited[i] = True
-                queue.append(i)
-                parents[i] = cur_v
-
-bfs()
-
-for i in range(2, N + 1):
-    print(parents[i])
-
+print(*parents[2:], sep="\n")
