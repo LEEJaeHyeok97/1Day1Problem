@@ -27,7 +27,7 @@ public class Main {
 
         int left = 0;
         int right = li.length - 1;
-        HashSet<ArrayList<Integer>> ans = new HashSet<>();
+        HashSet<int[]> ans = new HashSet<>();
         while (left < right) {
             int total = li[left] + li[right];
 
@@ -41,9 +41,9 @@ public class Main {
                 left += 1;
             }
             if (total == K) {
-                ArrayList<Integer> tmp = new ArrayList<>();
-                tmp.add(left);
-                tmp.add(right);
+                int[] tmp = new int[2];
+                tmp[0] = left;
+                tmp[1] = right;
                 ans.add(tmp);
                 left += 1;
                 right -= 1;
