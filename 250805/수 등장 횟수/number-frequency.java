@@ -1,25 +1,36 @@
 import java.util.*;
-import java.util.Scanner;
+import java.io.*;
+
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        int[] arr = new int[n];
+    public static HashMap<Integer, Integer> dict = new HashMap<>();
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+
+        st = new StringTokenizer(br.readLine());
+
         for (int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
+            int v = Integer.parseInt(st.nextToken());
+            if (!dict.containsKey(v)) {
+                dict.put(v, 1);
+            } else {
+                dict.put(v, dict.get(v) + 1);
+            }
         }
-        int[] queries = new int[m];
+
+        st = new StringTokenizer(br.readLine());
+
         for (int i = 0; i < m; i++) {
-            queries[i] = sc.nextInt();
-        }
-        // Please write your code here.
-        for (int i = 0; i < queries.length; i++) {
-            int value = queries[i];
-            long count = Arrays.stream(arr)
-                    .filter(x -> x == value)
-                    .count();
-            System.out.print(count+ " ");
+            int v = Integer.parseInt(st.nextToken());
+            if (!dict.containsKey(v)) {
+                System.out.print(0 + " ");
+            } else {
+                System.out.print(dict.get(v) + " ");
+            }
         }
     }
 }
