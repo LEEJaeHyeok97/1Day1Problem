@@ -28,7 +28,7 @@ public class Main {
         int left = 0;
         int right = li.length - 1;
         HashSet<ArrayList<Integer>> ans = new HashSet<>();
-        while (left <= right) {
+        while (left < right) {
             int total = li[left] + li[right];
 
 //            System.out.println(total);
