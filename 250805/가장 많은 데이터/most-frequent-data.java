@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class main {
+public class Main {
     public static final int MAX_N = 100000;
 
     public static int n;
@@ -17,9 +17,8 @@ public class main {
 
 //        System.out.println("n = " + n);
 
-        st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
-            words[i] = st.nextToken();
+            words[i] = br.readLine();
         }
 
         for (int i = 0; i < n; i++) {
