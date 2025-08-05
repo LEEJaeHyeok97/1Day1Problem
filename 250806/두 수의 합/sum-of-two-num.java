@@ -43,7 +43,7 @@ public class Main {
             if (total == K) {
                 int a = li[left];
                 int b = li[right];
-                ans.add(List.of(a, b));
+                ans.add(Arrays.asList(a, b));
                 left += 1;
                 right -= 1;
             }
