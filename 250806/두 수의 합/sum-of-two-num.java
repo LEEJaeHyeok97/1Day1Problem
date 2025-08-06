@@ -14,8 +14,9 @@ public class Main {
         n = Integer.parseInt(st.nextToken());
         k = Integer.parseInt(st.nextToken());
 
+        st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(br.readLine());
+            arr[i] = Integer.parseInt(st.nextToken());
         }
 
         int ans = 0;
@@ -32,5 +33,6 @@ public class Main {
                 count.put(arr[i], count.get(arr[i]) + 1);
             }
         }
+        System.out.println(ans);
     }
 }
