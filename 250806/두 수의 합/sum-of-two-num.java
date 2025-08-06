@@ -10,9 +10,9 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        n = Integer.parseInt(br.readLine());
-        k = Integer.parseInt(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        n = Integer.parseInt(st.nextToken());
+        k = Integer.parseInt(st.nextToken());
 
         for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(br.readLine());
