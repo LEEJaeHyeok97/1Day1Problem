@@ -12,64 +12,86 @@
 # 아기 상어는 자신과 같은 크기의 물고기를 먹을 때 마다 크기가 1증가한다.
 
 # 아기상어의 처음 크기는 2
+
 from collections import deque
+N = int(input())
 
-dx = [-1, 0, 1, 0]
-dy = [0, -1, 0, 1]
+graph = [list(map(int, input().split())) for _ in range(N)]
 
-def bfs(shark_x, shark_y):
-    visited = [[False] * n for _ in range(n)]
-    q = deque([])
-    q.append((shark_x, shark_y, 0))
-    visited[shark_x][shark_y] = True
-    fishes = []
+# print(graph)
+
+for i in range(N):
+    for j in range(N):
+        if graph[i][j] == 9:
+            shark_x, shark_y = i, j
+            graph[i][j] = 0
+# print(shark_x, shark_y)
+shark_size = 2
+eat_count = 0
+total_time = 0
+
+dx = [0, 0, -1, 1]
+dy = [-1, 1, 0, 0]
+
+def bfs(sx, sy, size):
+    visited = [[False]*N for _ in range(N)]
+    q = deque([(sx, sy, 0)])
+    visited[sx][sy] = True
+
+    candidates = []
+    min_dist = None
 
     while q:
         x, y, dist = q.popleft()
-        # print(x, y, dist)
+
+        if min_dist is not None and dist > min_dist:
+            break
         for i in range(4):
             nx, ny = x + dx[i], y + dy[i]
+            if not (0 <= nx < N and 0 <= ny < N):
+                continue
+            if visited[nx][ny]:
+                continue
+            if graph[nx][ny] > size:
+                continue
 
-            if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
-                if board[nx][ny] <= size:
-                    visited[nx][ny] = True
-                    if 0 < board[nx][ny] < size:
-                        fishes.append((dist + 1, nx, ny))
-                    q.append((nx, ny, dist + 1))
-    fishes.sort()
-    return fishes
+            visited[nx][ny] = True
+            if 0 < graph[nx][ny] < size:
+                if min_dist is None or dist + 1 <= min_dist:
+                    min_dist = dist+1
+                    candidates.append((dist+1, nx, ny))
+            else:
+                q.append((nx, ny, dist+1))
+    return sorted(candidates, key=lambda x: (x[0], x[1], x[2]))
 
-n = int(input())
-board = [list(map(int, input().split())) for _ in range(n)]
-
-for i in range(n):
-    for j in range(n):
-        if board[i][j] == 9:
-            x, y = i, j
-            board[i][j] = 0
-
-size = 2
-eat = 0
-time = 0
-
-
-# 시뮬레이션
 while True:
-    fishes = bfs(x, y)
+    fishes = bfs(shark_x, shark_y, shark_size)
     if not fishes:
         break
 
-    dist, nx, ny = fishes[0]
-    time += dist
-    x, y = nx, ny
-    board[nx][ny] = 0
-    eat += 1
+    dist, fx, fy = fishes[0]
+    total_time += dist
+    shark_x, shark_y = fx, fy
 
-    if eat == size:
-        size += 1
-        eat = 0
+    graph[fx][fy] = 0
+    eat_count += 1
+    if eat_count == shark_size:
+        shark_size += 1
+        eat_count = 0
 
-print(time)
+print(total_time)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
