@@ -37,6 +37,10 @@ public class Main {
             }
         }
 
-        System.out.println(max_c);
+        if (max_c == null) {
+            System.out.println("None");
+        } else {
+            System.out.println(max_c);
+        }
     }
 }
