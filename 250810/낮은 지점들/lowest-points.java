@@ -23,7 +23,7 @@ public class Main {
             }
         }
 
-        int answer = 0;
+        Long answer = 0L;
         for (int v : m.keySet()) {
             answer += m.get(v);
         }
