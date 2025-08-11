@@ -38,7 +38,7 @@ public class Main {
             }
         }
 
-        System.out.printf(".2f", maxAvg);
+        System.out.printf("%.2f", maxAvg);
 
 
     }
