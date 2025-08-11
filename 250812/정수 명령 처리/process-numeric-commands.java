@@ -24,7 +24,7 @@ public class Main {
                 int number = Integer.parseInt(st.nextToken());
                 s.add(number);
             } else if (command.equals("pop")) {
-                int number = s.pop();
+                int number = s.pollLast();
                 System.out.println(number);
             } else if (command.equals("size")) {
                 System.out.println(s.size());
@@ -34,6 +34,8 @@ public class Main {
                 } else {
                     System.out.println("1");
                 }
+            } else if (command.equals("top")) {
+                System.out.println(s.peekLast());
             }
         }
 
