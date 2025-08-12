@@ -32,12 +32,9 @@ public class Main {
         int idx = 1;
         int tmp = 0;
         while (!dq.isEmpty()) {
-            if (tmp / 4 > 0) {
-                tmp %= 4;
-            }
             tmp++;
             int number = dq.poll();
-            if (tmp == 4) {
+            if (tmp == K) {
                 ans[idx] = number;
                 idx++;
                 tmp = 0;
