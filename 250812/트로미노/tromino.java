@@ -1,11 +1,9 @@
-package codingtest.codetree.simulation;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Tromino {
+public class Main {
 
     static int[][] graph;
     static int[][][] shapes = new int[][][]{
