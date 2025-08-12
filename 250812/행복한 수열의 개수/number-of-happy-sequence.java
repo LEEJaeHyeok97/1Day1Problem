@@ -24,6 +24,10 @@ public class Main {
         }
 
 //        System.out.println(Arrays.deepToString(graph));
+        if (M == 1) {
+            System.out.println(2 * N);
+            return;
+        }
 
         // 행 검사
         int ans = 0;
