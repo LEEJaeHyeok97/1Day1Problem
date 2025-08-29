@@ -13,6 +13,10 @@ public class Main {
         ans += (B - 11) * 60;
         ans += C - 11;
 
-        System.out.println(ans);
+        if (ans < 0) {
+            System.out.println(-1);
+        } else {
+            System.out.println(ans);
+        }
     }
 }
