@@ -9,6 +9,6 @@ public class Main {
         // Please write your code here.
         int ans = a * 60 + b - (c * 60 + d);
 
-        System.out.println(ans);
+        System.out.println(Math.abs(ans));
     }
 }
