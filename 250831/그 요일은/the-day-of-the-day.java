@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    static int[] days = new int[]{0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    static int[] days = new int[]{0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     static int calculateDay(int m, int d) {
         int cal_days = 0;
@@ -26,15 +26,18 @@ public class Main {
         int tmp = 0;
         int ans;
 
+        while (d < 0)
+            d += 7;
+
         String[] dayOfWeek = new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
         for(int i = 0; i < 7; i++) {
-            if(dayOfWeek[i] == A) {
+            if(dayOfWeek[i].equals(A)) {
                 tmp = i;
                 break;
             }
         }
         ans = d / 7;
-        if (d % 7 >= tmp) {
+        if (d%7 >= tmp) {
             ans +=1;
         }
         System.out.println(ans);
