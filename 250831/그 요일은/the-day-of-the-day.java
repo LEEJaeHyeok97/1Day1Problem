@@ -23,15 +23,21 @@ public class Main {
         // Please write your code here.
         
         int d = calculateDay(m2, d2) - calculateDay(m1, d1);
+        int tmp = 0;
+        int ans;
 
         String[] dayOfWeek = new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
         for(int i = 0; i < 7; i++) {
             if(dayOfWeek[i] == A) {
-                d -= i;
+                tmp = i;
                 break;
             }
         }
-        System.out.println(d / 7 + 1);
+        ans = d / 7;
+        if (d % 7 >= tmp) {
+            ans +=1;
+        }
+        System.out.println(ans);
         
     }
 }
