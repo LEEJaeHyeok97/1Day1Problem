@@ -5,7 +5,7 @@ public class Main {
         int n = sc.nextInt();
         // Please write your code here.
 
-        int[] arr = new int[n/2];
+        int[] arr = new int[50000];
 
         int cnt = 1;
         while (true) {
