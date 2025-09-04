@@ -51,7 +51,20 @@ public class Main {
                 }
             }
         }
-        int answer = (max_x1 - min_x1 + 1) * (max_y1 - min_y1 + 1);
+        
+        for (int i = min_x1; i <= max_x1; i++) {
+            for (int j = min_y1; j <= max_y1; j++) {
+                arr[i][j] = 1;
+            }
+        }
+
+        int answer = 0;
+        for (int i = 0; i < 2001; i++) {
+            for (int j = 0; j < 2001; j++) {
+                if (arr[i][j] == 1) answer +=1;
+            }
+        }
+
         System.out.println(answer);
         
     }
