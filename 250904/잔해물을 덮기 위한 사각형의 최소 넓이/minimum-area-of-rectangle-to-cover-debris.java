@@ -59,10 +59,16 @@ public class Main {
         }
 
         int answer = 0;
-        for (int i = 0; i < 2001; i++) {
-            for (int j = 0; j < 2001; j++) {
-                if (arr[i][j] == 1) answer +=1;
-            }
+        // for (int i = 0; i < 2001; i++) {
+        //     for (int j = 0; j < 2001; j++) {
+        //         if (arr[i][j] == 1) answer +=1;
+        //     }
+        // }
+
+        if (maxX == 0 && maxY == 0) {
+            // 잔해물이 아예 없는 경우
+            System.out.println(0);
+            break;
         }
         answer = (max_x1 - min_x1 + 1) * (max_y1 - min_y1 + 1);
         System.out.println(answer);
