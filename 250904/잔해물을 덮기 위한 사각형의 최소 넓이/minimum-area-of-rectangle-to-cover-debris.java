@@ -64,7 +64,7 @@ public class Main {
                 if (arr[i][j] == 1) answer +=1;
             }
         }
-
+        answer = (max_x1 - min_x1 + 1) * (max_y1 - min_y1 + 1);
         System.out.println(answer);
         
     }
