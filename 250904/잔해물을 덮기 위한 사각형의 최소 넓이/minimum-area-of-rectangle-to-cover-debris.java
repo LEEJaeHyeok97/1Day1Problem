@@ -65,10 +65,10 @@ public class Main {
         //     }
         // }
 
-        if (maxX == 0 && maxY == 0) {
+        if (max_x1 == 0 && max_y1 == 0) {
             // 잔해물이 아예 없는 경우
             System.out.println(0);
-            break;
+            return;
         }
         answer = (max_x1 - min_x1 + 1) * (max_y1 - min_y1 + 1);
         System.out.println(answer);
