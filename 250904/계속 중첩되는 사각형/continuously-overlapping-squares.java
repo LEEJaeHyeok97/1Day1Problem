@@ -19,7 +19,7 @@ public class Main {
                 }
             
             cur_color += 1;
-            if (cur_color == 3) cur_color = 1;
+            if (cur_color % 3 == 0) cur_color %= 2;
         }
         // Please write your code here.
 
