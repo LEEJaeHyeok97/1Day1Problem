@@ -19,6 +19,7 @@ public class Main {
                 cnt += 1;
             }
         }
+        li.add(cnt);
 
         System.out.println(Collections.max(li));
     }
