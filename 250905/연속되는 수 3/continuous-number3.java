@@ -13,11 +13,11 @@ public class Main {
         int maxValue = 0;
         for (int i = 0; i < n; i++) {
             if (i == 0 || arr[i] * arr[i - 1] < 0) {
-                maxValue = Math.max(maxValue, cnt);
                 cnt = 1;
             } else {
                 cnt += 1 ;
             }
+            maxValue = Math.max(maxValue, cnt);
         }
 
         System.out.println(maxValue);
