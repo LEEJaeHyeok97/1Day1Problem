@@ -10,7 +10,9 @@ public class Main {
             arr[i] = sc.nextInt();
         // Please write your code here.
         int answer = 1;
-        int cnt = 1;
+        int cnt;
+        if (arr[0] > t) cnt = 1;
+        else cnt = 0;
         for (int i = 1; i < n; i++) {
             if (arr[i] > t && arr[i-1] > t) {
                 cnt += 1;
