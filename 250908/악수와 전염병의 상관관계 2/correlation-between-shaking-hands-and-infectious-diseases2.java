@@ -21,22 +21,32 @@ public class Main {
         }
         // Please write your code here.
         int[] arr = new int[N+1];
+        int[] infect = new int[N+1];
         
         Arrays.sort(shakes, Comparator.comparingInt(a -> a[0]));
         arr[P] = 1;
+        infect[P] = K;
         
         for(int i = 0; i < shakes.length; i++) {
             int p1 = shakes[i][1];
             int p2 = shakes[i][2];
-            if (K > 0) {
-                if (arr[p1] == 1 && arr[p2] == 0) {
-                    arr[p2] = 1;
-                    K--;
-                } else if (arr[p1] == 0 && arr[p2] == 1) {
-                    arr[p1] = 1;
-                    K--;
-                } else if (arr[p1] == 1 && arr[p2] == 1) {
-                    K-=2;
+            
+            if (arr[p1] == 1 || arr[p2] == 1) {
+                if (infect[p1]-- > 0) {
+                    if (arr[p2] == 0) {
+                        arr[p2] = 1;
+                        infect[p2] = K;
+                    } else {
+                        infect[p2]--;
+                    }
+                }
+                if (infect[p2]-- > 0) {
+                    if (arr[p1] == 0) {
+                        arr[p1] = 1;
+                        infect[p1] = K;
+                    } else {
+                        infect[p2]--;
+                    }
                 }
             }
         }
