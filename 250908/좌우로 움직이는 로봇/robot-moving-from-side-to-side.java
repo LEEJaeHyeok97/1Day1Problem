@@ -46,12 +46,18 @@ public class Main {
         }
         
         // Please write your code here.
+        int totalTime = Math.max(timeA, timeB);
+        for (int i = timeA; i < totalTime; i++) A[i] = A[timeA - 1];
+        for (int i = timeB; i < totalTime; i++) B[i] = B[timeB - 1];
+
         int answer = 0;
-        int minTime = Math.min(timeA, timeB);
-        for (int i = 1; i < minTime; i++) {
-            if (A[i] == B[i]) {
-                answer += 1;
-            }
+        for (int i = 1; i < totalTime; i++) {
+            int a0 = A[i - 1], b0 = B[i - 1];
+            int a1 = A[i], b1 = B[i];
+
+            boolean meetNow = (a0 != b0) &&( (a1 == b1) || (a0 < b0 && a1 > b1)
+            || (a0 > b0 && a1 < b1));
+            if(meetNow) answer++;
         }
 
         System.out.println(answer);
