@@ -29,10 +29,14 @@ public class Main {
             int p1 = shakes[i][1];
             int p2 = shakes[i][2];
             if (K > 0) {
-                if (arr[p1] == 1 || arr[p2] == 1) {
-                    arr[p1] = 1;
+                if (arr[p1] == 1 && arr[p2] == 0) {
                     arr[p2] = 1;
                     K--;
+                } else if (arr[p1] == 0 && arr[p2] == 1) {
+                    arr[p1] = 1;
+                    K--;
+                } else if (arr[p1] == 1 && arr[p2] == 1) {
+                    K-=2;
                 }
             }
         }
