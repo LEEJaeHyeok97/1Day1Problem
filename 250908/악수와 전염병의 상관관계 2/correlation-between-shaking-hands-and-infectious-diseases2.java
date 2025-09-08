@@ -32,7 +32,7 @@ public class Main {
             int p2 = shakes[i][2];
             
             if (arr[p1] == 1 || arr[p2] == 1) {
-                if (infect[p1]-- > 0) {
+                if (infect[p1] > 0) {
                     if (arr[p2] == 0) {
                         arr[p2] = 1;
                         infect[p2] = K;
@@ -40,7 +40,7 @@ public class Main {
                         infect[p2]--;
                     }
                 }
-                if (infect[p2]-- > 0) {
+                if (infect[p2] > 0) {
                     if (arr[p1] == 0) {
                         arr[p1] = 1;
                         infect[p1] = K;
