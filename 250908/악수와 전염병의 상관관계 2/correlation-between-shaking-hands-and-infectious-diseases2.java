@@ -1,55 +1,71 @@
 import java.util.*;
 
-// N명의 개발자. T번에 걸쳐 t초에 x,y 악수
-// 정확히 K번 악수 동안만 전염병을 옮김. 이후에는 옮기지 X
-// 전염된 사람 끼리 만나도 전염시킨 것으로 간주하고 K 카운트 다운
-// 이 경우 재감염은 아님
-// P: 처음 전염병에 걸려 있는 개발자의 번호
-// 0음성 1양성.
+class Shake implements Comparable<Shake> {
+    int time;
+    int person1;
+    int person2;
+
+    public Shake(int time, int person1, int person2) {
+        this.time = time;
+        this.person1 = person1;
+        this.person2 = person2;
+    }
+
+    @Override
+    public int compareTo(Shake shake) {
+        return time - shake.time;
+    }
+}
+
 public class Main {
+
+    static final int MAX_T = 250;
+    static final int MAX_N = 100;
+
+    static int[] shakeNum = new int[MAX_N + 1];
+    static boolean[] infected = new boolean[MAX_N + 1];
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt(); // N명의 개발자
-        int K = sc.nextInt(); // K번의 악수
-        int P = sc.nextInt(); // 전염병에 걸린 개발자 번호
-        int T = sc.nextInt(); // T번에 걸쳐 악수
-        int[][] shakes = new int[T][3];
-        for (int i = 0; i < T; i++) {
-            shakes[i][0] = sc.nextInt();
-            shakes[i][1] = sc.nextInt();
-            shakes[i][2] = sc.nextInt();
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int p = sc.nextInt();
+        int t = sc.nextInt();
+        infected[p] = true;
+        
+        Shake[] shakes = new Shake[MAX_T];
+        for (int i = 0; i < t; i++) {
+            int time = sc.nextInt();
+            int person1 = sc.nextInt();
+            int person2 = sc.nextInt();
+
+            shakes[i] = new Shake(time, person1, person2);
         }
-        // Please write your code here.
-        int[] arr = new int[N+1];
-        int[] infect = new int[N+1];
-        
-        Arrays.sort(shakes, Comparator.comparingInt(a -> a[0]));
-        arr[P] = 1;
-        infect[P] = K;
-        
-        for(int i = 0; i < shakes.length; i++) {
-            int p1 = shakes[i][1];
-            int p2 = shakes[i][2];
+
+        Arrays.sort(shakes, 0, t);
+
+        for (int i = 0; i < t; i++) {
+            int target1 = shakes[i].person1;
+            int target2 = shakes[i].person2;
+
+            if(infected[target1])
+                shakeNum[target1]++;
+            if(infected[target2])
+                shakeNum[target2]++;
             
-            if (arr[p1] == 1 && infect[p1] > 0) {
-                infect[p1]--;
-                if (arr[p2] == 0) {
-                    arr[p2] = 1;
-                    infect[p2] = K;
-                }
-            }
-
-            if (arr[p2] == 1 && infect[p2] > 0) {
-                infect[p2]--;
-                if (arr[p1] == 0) {
-                    arr[p1] = 1;
-                    infect[p1] = K;
-                }
-            }
+            if(shakeNum[target1] <= k && infected[target1])
+                infected[target2] = true;
+            
+            if(shakeNum[target2] <= k && infected[target2])
+                infected[target1] = true;
         }
 
-        for (int i = 1; i < arr.length; i++) {
-            System.out.print(arr[i]);
+        for(int i = 1; i <= n; i++) {
+            if(infected[i])
+                System.out.print(1);
+            else
+                System.out.print(0);
         }
+
+        // Please write your code here.
     }
 }
