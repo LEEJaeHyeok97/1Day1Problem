@@ -31,22 +31,19 @@ public class Main {
             int p1 = shakes[i][1];
             int p2 = shakes[i][2];
             
-            if (arr[p1] == 1 || arr[p2] == 1) {
-                if (infect[p1] > 0) {
-                    if (arr[p2] == 0) {
-                        arr[p2] = 1;
-                        infect[p2] = K;
-                    } else {
-                        infect[p2]--;
-                    }
+            if (arr[p1] == 1 && infect[p1] > 0) {
+                infect[p1]--;
+                if (arr[p2] == 0) {
+                    arr[p2] = 1;
+                    infect[p2] = K;
                 }
-                if (infect[p2] > 0) {
-                    if (arr[p1] == 0) {
-                        arr[p1] = 1;
-                        infect[p1] = K;
-                    } else {
-                        infect[p2]--;
-                    }
+            }
+
+            if (arr[p2] == 1 && infect[p2] > 0) {
+                infect[p2]--;
+                if (arr[p1] == 0) {
+                    arr[p1] = 1;
+                    infect[p1] = K;
                 }
             }
         }
