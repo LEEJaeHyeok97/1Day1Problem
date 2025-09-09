@@ -31,7 +31,7 @@ public class Main {
             }
         }
 
-        System.out.println(R + " " + C);
+        System.out.println(C + " " + R);
     }
 
     static boolean inRange(int x, int y) {
