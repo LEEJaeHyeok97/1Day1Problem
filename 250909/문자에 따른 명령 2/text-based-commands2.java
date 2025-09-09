@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class Main {
-    static int[] dx = new int[]{-1, 0, 1, 0};
-    static int[] dy = new int[]{0, 1, 0, -1};
+    static int[] dx = new int[]{0, 1, 0, -1};
+    static int[] dy = new int[]{1, 0, -1, 0};
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String s = sc.next();
@@ -21,6 +21,6 @@ public class Main {
             }
         }
 
-        System.out.println(curY + " " + curX);
+        System.out.println(curX + " " + curY);
     }
 }
