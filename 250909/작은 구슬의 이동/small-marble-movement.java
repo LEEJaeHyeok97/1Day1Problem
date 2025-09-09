@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Main {
     static int N;
 
-    static int[] dx = new int[]{0, 1, -1, 0};
-    static int[] dy = new int[]{-1, 0, 0, 1};
+    static int[] dx = new int[]{-1, 0, 0, 1};
+    static int[] dy = new int[]{0, 1, -1, 0};
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         N = sc.nextInt();
@@ -13,7 +13,6 @@ public class Main {
         int C = sc.nextInt();
         String D = sc.next();
         // Please write your code here.
-        int[][] graph = new int[N][N];
         R -= 1;
         C -= 1;
 
@@ -30,8 +29,9 @@ public class Main {
                 d = (3 - d);
             }
         }
-
-        System.out.println(C + " " + R);
+        R++;
+        C++;
+        System.out.println(R + " " + C);
     }
 
     static boolean inRange(int x, int y) {
