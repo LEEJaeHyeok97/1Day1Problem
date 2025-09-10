@@ -16,22 +16,14 @@ public class Main {
         int y = 0;
         int d = 1;
         graph[x][y] = 1;
-        int cnt = 2;
-        for(int i = 0; i < n*m; i++) {
-            x = x + dx[d];
-            y = y + dy[d];
+        for(int i = 2; i <= n*m; i++) {
+            int nextX = x + dx[d];
+            int nextY = y + dy[d];
 
-            if(inRange(x, y) && graph[x][y] == 0) {
-                graph[x][y] = cnt++;
-            } else {
-                x = x - dx[d];
-                y = y - dy[d];
+            if(!inRange(nextX, nextY) || graph[nextX][nextY] != 0)
                 d = (d + 1) % 4;
-                x = x + dx[d];
-                y = y + dy[d];
-                if(inRange(x, y) && graph[x][y] == 0)
-                    graph[x][y] = cnt++;
-            }
+            x = x + dx[d]; y = y + dy[d];
+            graph[x][y] = i;
         }
         
         for(int i = 0; i < n; i++) {
