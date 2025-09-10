@@ -17,7 +17,7 @@ public class Main {
         int d = 1;
         graph[x][y] = 1;
         int cnt = 2;
-        for(int i = 0; i < n*(m+4); i++) {
+        for(int i = 0; i < n*m; i++) {
             x = x + dx[d];
             y = y + dy[d];
 
@@ -27,6 +27,10 @@ public class Main {
                 x = x - dx[d];
                 y = y - dy[d];
                 d = (d + 1) % 4;
+                x = x + dx[d];
+                y = y + dy[d];
+                if(graph[x][y] == 0)
+                    graph[x][y] = cnt++;
             }
         }
         
