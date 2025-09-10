@@ -29,7 +29,7 @@ public class Main {
                 d = (d + 1) % 4;
                 x = x + dx[d];
                 y = y + dy[d];
-                if(graph[x][y] == 0)
+                if(inRange(x, y) && graph[x][y] == 0)
                     graph[x][y] = cnt++;
             }
         }
