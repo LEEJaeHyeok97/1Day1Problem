@@ -9,21 +9,20 @@ public class Main {
         int curX = 0;
         int curY = 0;
         boolean flag = false;
-        int time = 0;
+        int time = 1;
         for(int i = 0; i < n; i++){
             char dir = sc.next().charAt(0);
             int dist = sc.nextInt();
 
             int d = getDir(dir);
             for(int j = 0; j < dist; j++) {
-                if(flag == true && curX == 0 && curY == 0) {
+                curX = curX + dx[d];
+                curY = curY + dy[d];
+                if(curX == 0 && curY == 0) {
                     System.out.println(time);
                     return;
                 }
-
-                curX = curX + dx[d];
-                curY = curY + dy[d];
-                if(curX == 0 && curY == 0) flag = true;
+                
                 time+=1;
             }
 
