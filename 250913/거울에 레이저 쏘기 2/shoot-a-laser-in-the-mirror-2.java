@@ -27,9 +27,9 @@ public class Main {
         } else if(k <= 2 * n) {
             x = k - n - 1; y = n - 1; dir = 2;
         } else if(k <= 3 * n) {
-            x = n - 1; y = -1 * (k - 2*n -1) + 2; dir = 3;
+            x = n - 1; y = 3*n - k; dir = 3;
         } else if(k <= 4 * n) {
-            x = -1 * (k - 3*n - 1) + 2; y = 0; dir = 0;   
+            x = 4*n - k; y = 0; dir = 0;   
         }
 
         // System.out.println(startX + " " + startY);
