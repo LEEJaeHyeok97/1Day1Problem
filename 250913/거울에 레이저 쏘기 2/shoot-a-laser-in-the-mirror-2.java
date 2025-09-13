@@ -15,67 +15,51 @@ public class Main {
                 grid[i][j] = s.charAt(j);
             }
         }
-        int startNum = sc.nextInt();
-        int curDirection = (startNum - 1) / n;
-        // Please write your code here.
-        int curX = 0;
-        int curY = 0;
-        int time = 1;
-        int d = 0;
-        int startX = 0;
-        int startY = 0;
-        for(int i = 1; i <= n * 4; i++) {
-            if(!inRange(curX, curY)) {
-                d +=1;
-                continue;
-            } else {
-                curX += curX + dx[d];
-                curY += curY + dy[d];
-            }
+        int k = sc.nextInt();
 
-            if(time == (startNum - 1)) {
-                startX = curX;
-                startY = curY;
-                break;
-            }
-            time++;
+        // Please write your code here.
+        int x = 0;
+        int y = 0;
+        int dir = 0;
+        
+        if(1 <= k && k <= n) {
+            x = 0; y = k - 1; dir = 1;
+        } else if(k <= 2 * n) {
+            x = k - n - 1; y = n - 1; dir = 2;
+        } else if(k <= 3 * n) {
+            x = n - 1; y = -1 * (k - 2*n -1) + 2; dir = 3;
+        } else if(k <= 4 * n) {
+            x = -1 * (k - 3*n - 1) + 2; y = 0; dir = 0;   
         }
 
         // System.out.println(startX + " " + startY);
         // System.out.println(curDirection);
+        int steps = 0;
+        // 사이클 가드(같은 칸, 같은 방향 재방문 시 무한반사)
+        boolean[][][] visited = new boolean[n][n][4];
 
-        int ans = 0;
-        while(true) {
-            if(!inRange(startX, startY)) {
-                System.out.println(ans);
+        // 반사 테이블(빠르고 깔끔)
+        int[] slash = {3, 2, 1, 0}; // '/' 거울
+        int[] back  = {1, 0, 3, 2}; // '\' 거울
+
+        while (inRange(x, y)) {
+            if (visited[x][y][dir]) { // 사이클이면 문제 요구에 맞춰 처리(여긴 -1 출력)
+                System.out.println(-1);
                 return;
             }
+            visited[x][y][dir] = true;
 
-            if(grid[startX][startY] == '/') {// 우 하 좌 상
-                if(curDirection == 0) {
-                    d = 3;
-                } else if(curDirection == 1) {
-                    d = 2;
-                } else if(curDirection == 2) {
-                    d = 1;
-                } else if(curDirection == 3) {
-                    d = 0;
-                }
-            } else { // '\'
-                if(curDirection == 0) {
-                    d = 1;
-                } else if(curDirection == 1) {
-                    d = 0;
-                } else if(curDirection == 2) {
-                    d = 3;
-                } else if(curDirection == 3) {
-                    d = 2;
-                }
-            }
-            startX += dx[d];
-            startY += dy[d];
-            ans+=1;
+            char c = grid[x][y];
+            if (c == '/') dir = slash[dir];
+            else if (c == '\\') dir = back[dir]; // 빈칸 없고 두 종류만 온다고 가정
+
+            x += dx[dir];
+            y += dy[dir];
+            steps++;
         }
+
+        System.out.println(steps);
+        
     }
 
     static boolean inRange(int x, int y) {
