@@ -9,14 +9,6 @@ public class Main {
             arr[i] = sc.nextInt();
         // Please write your code here.
         int ans = 0;
-        if(n < 3) {
-            System.out.println(0);
-            return;
-        }
-        if(n == 3) {
-            System.out.println(1);
-            return;
-        }
         for(int i = 0; i < arr.length; i++) {
             for(int j = i + 1; j < arr.length; j++) {
                 for(int k = j + 1; k < arr.length; k++) {
