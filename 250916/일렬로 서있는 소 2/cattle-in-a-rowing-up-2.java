@@ -20,7 +20,7 @@ public class Main {
         for(int i = 0; i < arr.length; i++) {
             for(int j = i + 1; j < arr.length; j++) {
                 for(int k = j + 1; k < arr.length; k++) {
-                    if(arr[i] <= arr[j] && arr[j] < arr[k])
+                    if(arr[i] <= arr[j] && arr[j] <= arr[k])
                         ans += 1;
                 }
             }
