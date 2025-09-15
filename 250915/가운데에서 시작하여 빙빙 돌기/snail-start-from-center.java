@@ -15,7 +15,7 @@ public class Main {
         int d = 0;
         graph[curX][curY] = time--;
 
-        for(int i = 1; i < n*n - 1; i++) {
+        for(int i = 1; i < n*n; i++) {
             int nx = curX + dx[d];
             int ny = curY + dy[d];
 
@@ -28,6 +28,9 @@ public class Main {
             } else {
                 graph[nx][ny] = time--;
             }
+
+            curX = nx;
+            curY = ny;
         }
 
         for(int i = 0; i < n; i++) {
