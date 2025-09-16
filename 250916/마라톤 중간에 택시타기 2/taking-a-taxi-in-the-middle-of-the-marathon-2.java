@@ -12,7 +12,7 @@ public class Main {
         }
         // Please write your code here.
         int ans = Integer.MAX_VALUE;
-        for(int i = 0; i < n; i++) {
+        for(int i = 1; i < n - 1; i++) {
             int tmp = 0;
             int curX = 0; int curY = 0;
             for(int j = 0; j < n; j++) {
