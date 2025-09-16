@@ -16,7 +16,7 @@ public class Main {
             for(int j = 1; j < C - 2; j++) {
                 for(int k = i + 1; k < R - 1; k++) {
                     for(int s = j + 1; s < C -1; s++) {
-                        if(grid[i][j] != grid[0][0] && grid[k][s] != grid[i][j])
+                        if(grid[i][j] != grid[0][0] && grid[k][s] != grid[i][j] && grid[k][s] != grid[R-1][C-1])
                             ans += 1;
                     }
                 }
