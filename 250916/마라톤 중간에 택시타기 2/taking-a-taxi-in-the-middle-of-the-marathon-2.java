@@ -14,7 +14,7 @@ public class Main {
         int ans = Integer.MAX_VALUE;
         for(int i = 1; i < n - 1; i++) {
             int tmp = 0;
-            int curX = 0; int curY = 0;
+            int curX = x[0]; int curY = y[0];
             for(int j = 0; j < n; j++) {
                 if(i == j) continue;
                 else {
