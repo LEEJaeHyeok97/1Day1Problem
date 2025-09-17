@@ -21,7 +21,8 @@ public class Main {
                 }
             }
         }
-        System.out.println(ans);
+        if(ans == Integer.MIN_VALUE) System.out.println(-1);
+        else System.out.println(ans);
     }
 
     static boolean isCarry(int n1, int n2, int n3) {
