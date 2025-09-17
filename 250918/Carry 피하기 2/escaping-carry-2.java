@@ -11,6 +11,7 @@ public class Main {
         }
         // Please write your code here.
         int ans = Integer.MIN_VALUE;
+        boolean flag = false;
         for(int i = 0; i < n; i++) {
             for(int j = i + 1; j < n; j++) {
                 for(int k = j + 1; k < n; k++) {
@@ -18,10 +19,11 @@ public class Main {
                         continue;
                     }
                     ans = Math.max(ans, (arr[i] + arr[j] + arr[k]));
+                    flag = true;
                 }
             }
         }
-        if(ans == Integer.MIN_VALUE) System.out.println(-1);
+        if(flag == false) System.out.println(-1);
         else System.out.println(ans);
     }
 
@@ -35,7 +37,6 @@ public class Main {
             t1 /= 10; t2 /= 10;
         }
 
-        tmp = 10;
         t1 = n1; t2 = n2; t3 = n3;
         for(int i = 0; i < 7; i++) {
             if(t1 % tmp + t3 % tmp >= 10) {
@@ -44,7 +45,6 @@ public class Main {
             t1 /= 10; t3 /= 10;
         }
 
-        tmp = 10;
         t1 = n1; t2 = n2; t3 = n3;
         for(int i = 0; i < 7; i++) {
             if(t2 % tmp + t3 % tmp >= 10) {
