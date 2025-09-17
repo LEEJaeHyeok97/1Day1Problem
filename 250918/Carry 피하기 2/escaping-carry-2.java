@@ -30,7 +30,7 @@ public class Main {
     static boolean isCarry(int n1, int n2, int n3) {
         int tmp = 10;
         int t1 = n1; int t2 = n2; int t3 = n3;
-        for(int i = 0; i < 7; i++) {
+        for(int i = 0; i < 5; i++) {
             if(t1 % tmp + t2 % tmp >= 10) {
                 return false;
             } 
@@ -38,7 +38,7 @@ public class Main {
         }
 
         t1 = n1; t2 = n2; t3 = n3;
-        for(int i = 0; i < 7; i++) {
+        for(int i = 0; i < 5; i++) {
             if(t1 % tmp + t3 % tmp >= 10) {
                 return false;
             } 
@@ -46,7 +46,7 @@ public class Main {
         }
 
         t1 = n1; t2 = n2; t3 = n3;
-        for(int i = 0; i < 7; i++) {
+        for(int i = 0; i < 5; i++) {
             if(t2 % tmp + t3 % tmp >= 10) {
                 return false;
             } 
