@@ -31,26 +31,10 @@ public class Main {
         int tmp = 10;
         int t1 = n1; int t2 = n2; int t3 = n3;
         for(int i = 0; i < 5; i++) {
-            if(t1 % tmp + t2 % tmp >= 10) {
+            if(t1 % tmp + t2 % tmp + t3 % tmp >= 10) {
                 return false;
             } 
-            t1 /= 10; t2 /= 10;
-        }
-
-        t1 = n1; t2 = n2; t3 = n3;
-        for(int i = 0; i < 5; i++) {
-            if(t1 % tmp + t3 % tmp >= 10) {
-                return false;
-            } 
-            t1 /= 10; t3 /= 10;
-        }
-
-        t1 = n1; t2 = n2; t3 = n3;
-        for(int i = 0; i < 5; i++) {
-            if(t2 % tmp + t3 % tmp >= 10) {
-                return false;
-            } 
-            t2 /= 10; t3 /= 10;
+            t1 /= 10; t2 /= 10; t3 /= 10;
         }
 
         return true;
