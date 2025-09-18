@@ -38,7 +38,7 @@ public class Main {
                     }
 
                     if(tmp[0] == 'L' && tmp[1] == 'E' && tmp[2] == 'E'){
-                        System.out.println(i + " " + j);
+                        // System.out.println(i + " " + j);
                         ans++;
 
                     }
