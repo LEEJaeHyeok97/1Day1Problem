@@ -24,13 +24,14 @@ public class Main {
                                 if(arr[nx][ny] == arr[i][j]) {
                                     cnt++;
                                 }
+                            else break;
                             }
                         }
                         // System.out.println(cnt);
                         if(cnt == 5) {
                             // System.out.println(i + " " + j);
-                            System.out.println(arr[i + 1][j + 1]);
-                            System.out.println((i+2 + 2*dx[k]) + " " + (j + 2*dy[k] + 1));
+                            System.out.println(arr[i][j]);
+                            System.out.println((i+1 + 2*dx[k]) + " " + (j + 2*dy[k] + 1));
                             return;
                         }
                     }
