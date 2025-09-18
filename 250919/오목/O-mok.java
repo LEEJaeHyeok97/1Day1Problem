@@ -30,7 +30,7 @@ public class Main {
                         if(cnt == 5) {
                             // System.out.println(i + " " + j);
                             System.out.println(arr[i + 1][j + 1]);
-                            System.out.println((i + 2*dx[k] + 2) + " " + (j + 2*dy[k] + 1));
+                            System.out.println((i+2 + 2*dx[k]) + " " + (j + 2*dy[k] + 1));
                             return;
                         }
                     }
