@@ -12,15 +12,8 @@ public class Main {
             int candy = sc.nextInt();
             int position = sc.nextInt();
 
-            positions[position] = candy;
+            positions[position] += candy;
         }
-        // Please write your code here.
-        // if(k >= n) {
-        //     int s = 0;
-        //     for(int i = 0; i < positions.length; i++) s+= positions[i];
-        //     System.out.println(s);
-        //     return;
-        // }
         int ans = 0;
         for(int i = 0; i <= 100 - 2*k; i++) {
             int tmp = 0;
