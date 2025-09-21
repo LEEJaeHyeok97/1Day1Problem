@@ -15,6 +15,12 @@ public class Main {
             positions[position] = candy;
         }
         // Please write your code here.
+        if(K >= N) {
+            int s = 0;
+            for(int i = 0; i < positions.length; i++) s+= positions[i];
+            System.out.println(s);
+            return;
+        }
         int ans = Integer.MIN_VALUE;
         for(int i = 0; i < positions.length - 2*k - 1; i++) {
             int tmp = 0;
