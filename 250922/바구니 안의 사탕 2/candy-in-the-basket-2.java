@@ -15,7 +15,7 @@ public class Main {
             positions[position] = candy;
         }
         // Please write your code here.
-        if(K >= N) {
+        if(k >= n) {
             int s = 0;
             for(int i = 0; i < positions.length; i++) s+= positions[i];
             System.out.println(s);
