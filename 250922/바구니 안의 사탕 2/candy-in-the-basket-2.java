@@ -16,10 +16,10 @@ public class Main {
         }
         // Please write your code here.
         int ans = Integer.MIN_VALUE;
-        for(int i = k; i < positions.length - k - 1; i++) {
+        for(int i = 0; i < positions.length - 2*k - 1; i++) {
             int tmp = 0;
-            for(int j = i - k; j <= i + k; j++) {
-                tmp += positions[j];
+            for(int j = 0; j <= 2*k; j++) {
+                tmp += positions[i + j];
             }
             ans = Math.max(tmp, ans);
         }
