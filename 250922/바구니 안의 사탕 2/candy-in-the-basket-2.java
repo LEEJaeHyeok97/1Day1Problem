@@ -22,7 +22,7 @@ public class Main {
             return;
         }
         int ans = Integer.MIN_VALUE;
-        for(int i = 0; i < positions.length - 2*k - 1; i++) {
+        for(int i = 1; i < positions.length - 2*k - 1; i++) {
             int tmp = 0;
             for(int j = 0; j <= 2*k; j++) {
                 tmp += positions[i + j];
