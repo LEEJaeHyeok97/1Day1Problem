@@ -13,9 +13,10 @@ public class Main {
         if(n == 1) {
             System.out.println(0);
             return;
-        }
+        }// 1 3 4 7 10 16
         int ans = 0;
         for(int i = 0; i < arr.length; i++) {
+            if(arr[i] == '\0') continue;
             int cnt_G = 0; int cnt_H = 0; boolean flag;
             for(int j = i; j < arr.length; j++) {
                 flag = false;
@@ -27,10 +28,17 @@ public class Main {
                     cnt_G++;
                     flag = true;
                 }
-                System.out.println(j-i);
-                if(cnt_H != 0 && cnt_G == 0 && flag == true) ans = Math.max(ans, j - i);
-                if(cnt_H == 0 && cnt_G != 0 && flag == true) ans = Math.max(ans, j - i);
-                if(cnt_H == cnt_G && flag == true) ans = Math.max(ans, j - i);
+                
+                if(cnt_H != 0 && cnt_G == 0 && flag == true) {
+                    ans = Math.max(ans, j - i);
+                }
+                if(cnt_H == 0 && cnt_G != 0 && flag == true) {
+                    ans = Math.max(ans, j - i);
+                }
+                if(cnt_H == cnt_G && flag == true) {
+                    ans = Math.max(ans, j - i);
+                }
+                
             }
 
         }
