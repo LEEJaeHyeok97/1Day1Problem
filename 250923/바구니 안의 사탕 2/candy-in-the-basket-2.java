@@ -3,7 +3,7 @@ import java.util.Scanner;
 // 0 5 2 0 0 0 0 4 0 0 0 0 0 0 0 10
 public class Main {
 
-    static int[] positions = new int[401];
+    static int[] positions = new int[101];
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -16,12 +16,11 @@ public class Main {
         }
 
         int ans = 0; //  0 0 0 0 0 0
-        for(int i = 0; i < positions.length - 2*k; i++) {
+        for(int i = 0; i < positions.length; i++) {
             int tmp = 0;
-            for(int j = i; j <= i + 2*k; j++) {
-                tmp += positions[j];
+            for(int j = i - k; j <= i + k; j++) {
+                if(j >= 0 && j < positions.length) tmp += positions[j];
             }
-            // System.out.println(tmp);
             ans = Math.max(ans, tmp);
         }
 
