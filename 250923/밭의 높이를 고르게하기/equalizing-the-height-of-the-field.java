@@ -13,7 +13,7 @@ public class Main {
         }
         // Please write your code here.
         int ans = Integer.MAX_VALUE;
-        for(int i = 0; i < arr.length - t; i++) {
+        for(int i = 0; i <= arr.length - t; i++) {
             int cnt = 0;
             for(int j = i; j < i + t; j++) {
                 int tmp = arr[j];
