@@ -3,7 +3,7 @@ import java.util.Scanner;
 // 0 5 2 0 0 0 0 4 0 0 0 0 0 0 0 10
 public class Main {
 
-    static int[] positions = new int[101];
+    static int[] positions = new int[401];
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
