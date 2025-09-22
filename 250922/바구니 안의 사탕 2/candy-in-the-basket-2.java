@@ -15,7 +15,7 @@ public class Main {
             positions[position] += candy;
         }
         int ans = 0;
-        for(int i = 0; i <= 100 - 2*k; i++) {
+        for(int i = 1; i <= 100 - 2*k; i++) {
             int tmp = 0;
             for(int j = 0; j <= 2*k; j++) {
                 tmp += positions[i + j];
