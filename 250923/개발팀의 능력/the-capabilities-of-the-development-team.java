@@ -18,11 +18,11 @@ public class Main {
                         for(int t = 0; t < 5; t++) {
                             if(i != j && i != k && i != s && i != t && j != k && j != s && j != t && k != s && k != t && s != t) {
                                 int t1 = arr[i] + arr[j]; int t2 = arr[k] + arr[s]; int t3 = arr[t];
-                                if(t1 != t2 && t1 != t3 && t2 != t3 ) {
+                                // if(t1 != t2 && t1 != t3 && t2 != t3 ) {
                                     int maxValue = Math.max(t1, Math.max(t2, t3));
                                     int minValue = Math.min(t1, Math.min(t2, t3));
                                     ans = maxValue - minValue;
-                                }
+                                // }
                             }
                         }
                     }
