@@ -9,7 +9,7 @@ public class Main {
         arr[3] = sc.nextInt();
         arr[4] = sc.nextInt();
         // Please write your code here.
-        int ans = -1;
+        int ans = Integer.MAX_VALUE;
         // 모든 팀의 능력치가 서로 다르게 만들 수 있어야함.
         for(int i = 0; i < 5; i++) {
             for(int j = 0; j < 5; j++) {
@@ -18,11 +18,11 @@ public class Main {
                         for(int t = 0; t < 5; t++) {
                             if(i != j && i != k && i != s && i != t && j != k && j != s && j != t && k != s && k != t && s != t) {
                                 int t1 = arr[i] + arr[j]; int t2 = arr[k] + arr[s]; int t3 = arr[t];
-                                // if(t1 != t2 && t1 != t3 && t2 != t3 ) {
+                                if(t1 != t2 && t1 != t3 && t2 != t3 ) {
                                     int maxValue = Math.max(t1, Math.max(t2, t3));
                                     int minValue = Math.min(t1, Math.min(t2, t3));
-                                    ans = maxValue - minValue;
-                                // }
+                                    ans = Math.min(ans, maxValue - minValue);
+                                }
                             }
                         }
                     }
@@ -30,6 +30,7 @@ public class Main {
             }
         }
 
-        System.out.println(ans);
+        if(ans == Integer.MAX_VALUE) System.out.println(-1);
+        else System.out.println(ans);
     }
 }
