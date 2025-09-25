@@ -17,6 +17,6 @@ public class Main {
             }
         }
 
-        System.out.println(n - cnt * 2);
+        System.out.println(n - cnt - 1);
     }
 }
