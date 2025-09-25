@@ -12,16 +12,16 @@ public class Main {
         // Please write your code here.
         int cnt = 0; 
         for(int i = 0; i < n; i++) {
-            boolean flag = false;
-            for(int j = i + 1; j < n; j++) {
-                if(x2[i] > x2[j]) {
-                    flag = true;
+            for(int j = 0; j < n; j++) {
+                if(i == j) continue;
+                if(x1[i] < x1[j] && x2[i] > x2[j])
                     cnt++;
-                }
+                if(x1[i] > x1[j] && x2[i] < x2[j])
+                    cnt++;
             }
-            if(flag) cnt++;
+
         }
 
-        System.out.println(n - cnt);
+        System.out.println(cnt);
     }
 }
