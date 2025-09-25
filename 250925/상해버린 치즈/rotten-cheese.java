@@ -33,17 +33,32 @@ public class Main {
 
             int[] tmp = arr[p];
             for(int j = 0; j < 51; j++) {
-                if(tmp[j] < t && tmp[j] != 0) {
+                if(tmp[j] < t && tmp[j] != 0 && tmp[j] != -1) {
                     candidates[j] = 1;
+                } else {
+                    candidates[j] = -1;
                 }
             }
         }
         // Please write your code here.
-        int ans = 0;
+        int ans[] = new int[51];
         for(int i = 0; i < 51; i++) {
-            if(candidates[i] > 0) ans++;
+            if(candidates[i] > 0) {
+                for(int j = 0; j < 51; j++) {
+                    if(arr[j][i] > 0) {
+                        ans[j] = 1;
+                    }
+            }
+            }
         }
 
-        System.out.println(ans);
+        int cnt = 0;
+        for(int i = 0; i < 51; i++) {
+            if(ans[i] == 1) {
+                cnt++;
+            }
+        }
+
+        System.out.println(cnt);
     }
 }
