@@ -10,13 +10,20 @@ public class Main {
             x2[i] = sc.nextInt();
         }
         // Please write your code here.
-        int cnt = 0;
+        int cnt = 0; boolean flag = false;
         for(int i = 0; i < n; i++) {
             for(int j = i + 1; j < n; j++) {
-                if(x2[i] > x2[j]) cnt++;
+                if(x2[i] > x2[j]) {
+                    flag = true;
+                    cnt++;
+                }
             }
         }
 
-        System.out.println(n - cnt - 1);
+        if(flag == true) {
+            System.out.println(n - cnt - 1);
+        } else {
+            System.out.println(n);
+        }
     }
 }
