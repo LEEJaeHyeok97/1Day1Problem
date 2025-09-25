@@ -12,13 +12,16 @@ public class Main {
         // Please write your code here.
         int cnt = 0; 
         for(int i = 0; i < n; i++) {
+            boolean overlap = false;
             for(int j = 0; j < n; j++) {
                 if(i == j) continue;
-                if(x1[i] < x1[j] && x2[i] > x2[j])
-                    cnt++;
+                if(x1[i] < x1[j] && x2[i] > x2[j]) 
+                    overlap = true;
                 if(x1[i] > x1[j] && x2[i] < x2[j])
-                    cnt++;
+                    overlap = true;
             }
+            if(overlap == false)
+                cnt++;
 
         }
 
