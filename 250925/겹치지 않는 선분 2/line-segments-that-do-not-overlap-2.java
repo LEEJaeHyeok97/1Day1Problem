@@ -15,10 +15,11 @@ public class Main {
             boolean overlap = false;
             for(int j = 0; j < n; j++) {
                 if(i == j) continue;
-                if(x1[i] < x1[j] && x2[i] > x2[j]) 
-                    overlap = true;
-                if(x1[i] > x1[j] && x2[i] < x2[j])
-                    overlap = true;
+                if(x1[i] < x1[j] && x2[i] > x2[j] || x1[i] > x1[j] && x2[i] < x2[j]) {
+                    overlap = true;break;
+                } 
+                    
+                
             }
             if(overlap == false)
                 cnt++;
