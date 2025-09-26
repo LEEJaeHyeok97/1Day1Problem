@@ -18,6 +18,7 @@ public class Main {
             for(int j = i + 1; j < n; j++) {
                 if(cnt <= k && bombs[j] == bombs[i]) {
                     ans = Math.max(ans, bombs[i]);
+                    break;
                 }
                 else {
                     cnt++;
