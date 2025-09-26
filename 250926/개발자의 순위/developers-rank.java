@@ -20,21 +20,19 @@ public class Main {
             for(int j = 0; j < k; j++) {
                 boolean flag = false;
                 for(int s = 0; s < n; s++) {
-                    if(arr[j][s] == i) {
-                        flag = true;
-                    }
+                    if(arr[j][s] == i) flag = true;
                     if(flag) {
-                        tmp[arr[j][s]] = 1;
+                        tmp[arr[j][s]]++;
                     }
                 }
             }
 
             for(int j = 0; j < n; j++) {
-                if(tmp[j] == 1) {
-                    System.out.print(tmp[j] + " ");
+                if(i == j) continue;
+                if(tmp[j] == k) {
+                    ans++;
                 }
             }
-            System.out.println();
         }
 
         System.out.println(ans);
