@@ -26,6 +26,7 @@ public class Main {
             }
         }
 
-        System.out.println(ans);
+        if(ans == Integer.MIN_VALUE) System.out.println(-1);
+        else System.out.println(ans);
     }
 }
