@@ -27,7 +27,7 @@ public class Main {
                 }
             }
 
-            for(int j = 0; j < n; j++) {
+            for(int j = 1; j <= n; j++) {
                 if(i == j) continue;
                 if(tmp[j] == k) {
                     ans++;
