@@ -19,7 +19,7 @@ public class Main {
         }
         // Please write your code here.
         int ans = 0;
-        for(int i = minT; i < maxT; i++) {
+        for(int i = minT; i <= maxT; i++) {
             int total = 0;
             for(int j = 0; j < n; j++) {
                 if(i < ta[j]) total += c;
