@@ -12,18 +12,21 @@ public class Main {
             int[] arr = new int[10];
             
             int num = i;
+            int allDigits = 0;
             while(num > 0) {
                 int digit = num % 10;
                 arr[digit]++;
+                allDigits++;
                 num /= 10;
             }
 
-            int cnt = 0;
+            boolean flag = false;
+
             for(int j = 0; j < 10; j++) {
-                if(arr[j] > 0) cnt++;
+                if(arr[j] == allDigits - 1) flag = true;
             }
 
-            if(cnt == 2) ans++;
+            if(flag) ans++;
         }
 
         System.out.println(ans);
