@@ -24,7 +24,7 @@ public class Main {
             int tmpN = Math.min(Math.abs(i - rn), Math.abs(i - ln));
 
             // System.out.println(tmpS + " " + tmpN);
-            if(Math.abs(i - tmpS) <= Math.abs(i - tmpN)) ans++;
+            if(tmpS <= tmpN) ans++;
         }
         
         System.out.println(ans);
