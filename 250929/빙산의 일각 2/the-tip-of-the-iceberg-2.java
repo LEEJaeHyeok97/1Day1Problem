@@ -21,9 +21,11 @@ public class Main {
                 if(h[j] > i) {
                     link = true;
                     cnt++;
+                    continue;
                 }
                 if(h[j] <= i) {
                     link = false;
+                    continue;
                 }
             }
             ans = Math.max(ans, cnt);
