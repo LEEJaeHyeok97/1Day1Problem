@@ -16,6 +16,7 @@ public class Main {
         boolean[] arr = new boolean[4];
         int ans = 0;
         for(int i = 1; i <= 3; i++) {
+            arr = new boolean[4];
             arr[i] = true;
             int cnt = 0;
             for(int j = 0; j < n; j++) {
@@ -26,8 +27,6 @@ public class Main {
 
                 if(arr[c[j]] == true) cnt++;
             }
-
-            arr[i] = false;
 
             ans = Math.max(ans, cnt);
         }
