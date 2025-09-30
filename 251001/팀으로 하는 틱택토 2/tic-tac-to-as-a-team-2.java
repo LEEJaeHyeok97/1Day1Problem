@@ -14,54 +14,53 @@ public class Main {
         // System.out.println(Character.getNumericValue(inp1.charAt(0)));
 
         int ans = 0;
-        boolean flag = false;
+        int cnt = 0;
         for(int i = 0; i < 3; i++) {
             arr = new int[10];
-            flag = false;
+            cnt = 0;
             for(int j = 0; j < 3; j++) {
                 arr[Character.getNumericValue(inp[i].charAt(j))]++;
             }
 
             for(int j = 1; j < 10; j++) {
-                if(arr[j] == 2) flag = true;
+                if(arr[j] > 0) cnt++;
             }
-            if(flag) ans++;
+            if(cnt == 2) ans++;
         }
 
         arr = new int[10];
-        flag = false;
         for(int i = 0; i < 3; i++) {
             arr = new int[10];
-            flag = false;
+            cnt = 0;
             for(int j = 0; j < 3; j++) {
                 arr[Character.getNumericValue(inp[j].charAt(i))]++;
             }
 
             for(int j = 1; j < 10; j++) {
-                if(arr[j] == 2) flag = true;
+                if(arr[j] > 0) cnt++;
             }
-            if(flag) ans++;
+            if(cnt == 2) ans++;
         }
 
         arr = new int[10];
-        flag = false;
+        cnt = 0;
         arr[Character.getNumericValue(inp[0].charAt(0))]++;
         arr[Character.getNumericValue(inp[1].charAt(1))]++;
         arr[Character.getNumericValue(inp[2].charAt(2))]++;
         for(int j = 1; j < 10; j++) {
-            if(arr[j] == 2) flag = true;
-        }
-        if(flag) ans++;
+                if(arr[j] > 0) cnt++;
+            }
+            if(cnt == 2) ans++;
 
         arr = new int[10];
-        flag = false;
+        cnt = 0;
         arr[Character.getNumericValue(inp[0].charAt(2))]++;
         arr[Character.getNumericValue(inp[1].charAt(1))]++;
         arr[Character.getNumericValue(inp[2].charAt(0))]++;
         for(int j = 1; j < 10; j++) {
-            if(arr[j] == 2) flag = true;
-        }
-        if(flag) ans++;
+                if(arr[j] > 0) cnt++;
+            }
+            if(cnt == 2) ans++;
 
         System.out.println(ans);
     }
