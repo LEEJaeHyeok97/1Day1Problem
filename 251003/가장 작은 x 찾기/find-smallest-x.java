@@ -10,7 +10,7 @@ public class Main {
             b[i] = sc.nextInt();
         }
         // Please write your code here.
-        for(int i = a[0]; i < b[0]; i++) {
+        for(int i = a[0]; i <= b[0]; i++) {
             boolean flag = false;
             if(i%2 == 0) {
                 for(int j = 1; j < n; j++) {
