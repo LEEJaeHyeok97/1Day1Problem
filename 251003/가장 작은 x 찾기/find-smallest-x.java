@@ -10,18 +10,21 @@ public class Main {
             b[i] = sc.nextInt();
         }
         // Please write your code here.
-        for(int i = a[0]; i <= b[0]; i++) {
-            boolean flag = false;
-            if(i%2 == 0) {
-                for(int j = 1; j < n; j++) {
-                    if(i * 2 < a[j] || i * 2 > b[j]) {
-                        flag = true;
-                        continue;
-                    }
-                    if(flag) continue;
-                    System.out.println(i / 2);
-                    return;
+        for(int i = 1; i <= 10000; i++) {
+            long val = i;
+            boolean ok = true;
+            
+            for(int j = 0; j < n; j++) {
+                val *= 2;
+                if(val < a[j] || val > b[j]) {
+                    ok = false;
+                    break;
                 }
+            }
+
+            if(ok) {
+                System.out.println(i);
+                return;
             }
         }
     }
