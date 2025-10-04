@@ -13,7 +13,7 @@ public class Main {
         for(int i = 1; i < n; i++) {
             int cnt = 0;
             for(int j = 0; j < n; j++) {
-                if(i <= arr[j] && Math.abs(i - arr[j]) <= 3)
+                if(i <= arr[j] && Math.abs(i - arr[j]) <= k)
                     cnt++;
             }
 
