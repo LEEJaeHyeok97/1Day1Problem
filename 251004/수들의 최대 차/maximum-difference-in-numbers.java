@@ -10,7 +10,7 @@ public class Main {
         }
         // Please write your code here.
         int ans = Integer.MIN_VALUE;
-        for(int i = 0; i <= 10000; i++) {
+        for(int i = 1; i <= 10000; i++) {
             int cnt = 0;
             for(int j = 0; j < n; j++) {
                 if(i <= arr[j] && Math.abs(i - arr[j]) <= 3)
