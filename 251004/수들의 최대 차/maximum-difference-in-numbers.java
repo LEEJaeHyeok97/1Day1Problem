@@ -10,10 +10,10 @@ public class Main {
         }
         // Please write your code here.
         int ans = Integer.MIN_VALUE;
-        for(int i = 1; i < n; i++) {
+        for(int i = 0; i < n; i++) {
             int cnt = 0;
             for(int j = 0; j < n; j++) {
-                if(Math.abs(arr[i] - arr[j]) <= k)
+                if(arr[i] <= arr[j] && Math.abs(arr[i] - arr[j]) <= k)
                     cnt++;
             }
 
