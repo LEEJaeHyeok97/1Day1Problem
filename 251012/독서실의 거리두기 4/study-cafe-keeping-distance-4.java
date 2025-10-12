@@ -9,38 +9,31 @@ public class Main {
         // Please write your code here.
         int ans = Integer.MIN_VALUE;
         for(int i = 0; i < n; i++) {
-            for(int j = 0; j < n; j++) {
+            for(int j = i + 1; j < n; j++) {
                 if(seat.charAt(i) == '1' || seat.charAt(j) == '1')
                     continue;
                 StringBuilder sb = new StringBuilder(seat);
                 sb.setCharAt(i, '1');
                 sb.setCharAt(j, '1');
+                String cand = sb.toString();
 
-                seat = sb.toString();
-                ans = Math.max(ans, checkMinDistance(seat));
-
-
-                sb = new StringBuilder(seat);
-                sb.setCharAt(i, '0');
-                sb.setCharAt(j, '0');
-                seat = sb.toString();
+                ans = Math.max(ans, checkMinDistance(cand));
             }
         }
 
         System.out.println(ans);
     }
 
-    static int checkMinDistance(String seat) {
-        int distance = Integer.MAX_VALUE;
-        int prev = 0;
-        int tmp = 0;
-        for(int i = 1; i < n; i++) {
-            if(seat.charAt(i) == '1' && seat.charAt(prev) == '1') {
-                distance = Math.min(distance, i - prev);
+    static int checkMinDistance(String s) {
+        int prev = -1;
+        int best = Integer.MAX_VALUE;
+        for(int i = 0; i < n; i++) {
+            if(s.charAt(i) == '1') {
+                if(prev != -1) best = Math.min(best, i - prev);
+                prev = i;
             }
-            if(seat.charAt(i) == '1') prev = i;
         }
 
-        return distance;
+        return best;
     }
 }
