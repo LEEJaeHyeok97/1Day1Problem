@@ -23,9 +23,10 @@ public class Main {
             int idx = 1;
             boolean flag = false;
             int[] visited = new int[n+1];
+            visited[i] = 1;
             for(int j = 0; j < n-1; j++) {
                 int val = a[j] - arr[idx - 1];
-                if(val <= 0) {
+                if(val <= 0 || val > n) {
                     flag = true;
                     break;
                 }
