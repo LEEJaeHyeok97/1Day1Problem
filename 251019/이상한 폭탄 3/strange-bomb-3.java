@@ -29,7 +29,7 @@ public class Main {
 
         int ans = 0;
         int tmp = Integer.MIN_VALUE;
-        for(int i = 0; i < n; i++) {
+        for(int i = 0; i < 1000001; i++) {
             if(cntList[i] > tmp) {
                 ans = i;
                 tmp = cntList[i];
