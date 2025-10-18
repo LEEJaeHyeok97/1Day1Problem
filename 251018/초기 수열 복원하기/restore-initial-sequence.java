@@ -16,8 +16,9 @@ public class Main {
         // 2 2 -> X
         // 초기 숫자 : 3
         // 3 1 5 2 4
-        int[] arr = new int[n];
+        
         for(int i = 1; i < 1001; i++) {
+            int[] arr = new int[n];
             arr[0] = i;
             int idx = 1;
             boolean flag = false;
