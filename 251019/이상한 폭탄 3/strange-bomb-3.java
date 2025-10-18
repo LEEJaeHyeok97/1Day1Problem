@@ -1,42 +1,45 @@
 import java.util.Scanner;
-// 같은 정수가 부여된 폭탄끼리 거리가 K 안에 있다면 폭발하게 된다.
+
 public class Main {
-    static int ans;
+    static int n;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+        n = sc.nextInt();
         int k = sc.nextInt();
         int[] bombs = new int[n];
         for (int i = 0; i < n; i++)
             bombs[i] = sc.nextInt();
         // Please write your code here.
-        int[] arr = new int[1000001];
-        boolean[] bombed = new boolean[101];
-
+        boolean[] visited = new boolean[n];
         for(int i = 0; i < n; i++) {
-            boolean flag = false;
-            for(int j = i+1; j < n; j++) {
-                if(j < i+k+1)
-                {if(bombs[i] == bombs[j]) {
-                    flag = true;
-                    arr[bombs[i]]++;
-                    bombed[i] = true;
-                    bombed[j] = true;
-                }}
+            for(int j = i + 1; j < i + k + 1; j++) {
+                if(inRange(j) && bombs[i] == bombs[j]) {
+                    visited[i] = true;
+                    visited[j] = true;
+                }
             }
-
-            if(flag) arr[bombs[i]]++; 
         }
 
-        
-        int tmp = 0;
-        for(int i = 0; i < arr.length; i++) {
-            if(arr[i] > tmp) {
-                 ans = i;
-                 tmp = arr[i];
+        int[] cntList = new int[1000001];
+        for(int i = 0; i < n; i++) {
+            if(visited[i]) {
+                cntList[bombs[i]]++;
+            }
+        }
+
+        int ans = 0;
+        int tmp = Integer.MIN_VALUE;
+        for(int i = 0; i < n; i++) {
+            if(cntList[i] > tmp) {
+                ans = i;
+                tmp = cntList[i];
             }
         }
 
         System.out.println(ans);
+    }
+
+    static boolean inRange(int num) {
+        return num < n;
     }
 }
