@@ -21,10 +21,10 @@ public class Main {
 
             int cnt = 0;
             for(int j = 0; j < n; j++) {
-                if(nums[j] > i) {
-                    possible = false;
-                    break;
-                }
+                // if(nums[j] > i) {
+                //     possible = false;
+                //     break;
+                // }
 
                 if(cnt + nums[j] > i) {
                     cnt = 0;
