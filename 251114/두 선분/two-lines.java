@@ -8,7 +8,7 @@ public class Main {
         int x4 = sc.nextInt();
         // Please write your code here.
         for(int i = x1; i < x2 + 1; i++) {
-            for(int j = x3; j < x3 + 1; j++) {
+            for(int j = x3; j < x4 + 1; j++) {
                 if(i == j) {
                     System.out.println("intersecting");
                     return;
