@@ -7,8 +7,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
-        arr = new int[N + 1];
-        viewed = new int[N + 1];
+        arr = new int[11];
+        viewed = new int[11];
 
         int ans = 0;
         for (int i = 0; i < N; i++) {
