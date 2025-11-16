@@ -10,19 +10,16 @@ public class Main {
         for(int i = 0; i < n; i++) {
             int a = sc.nextInt();
             int b = sc.nextInt();
-            boolean flag = false;
             for(int j = a; j < b+1; j++) {
-                if(arr[j] == 1) {
-                    flag = true;
-                }
-                arr[j] = 1;
+                arr[j]++;
             }
-            if(flag) cnt++;
         }
 
-        if(cnt == n) {
-            System.out.println("Yes");
-            return;
+        for(int i = 0; i < 101; i++) {
+            if(arr[i] == n) {
+                System.out.println("Yes");
+                return;
+            }
         }
         System.out.println("No");
     }
