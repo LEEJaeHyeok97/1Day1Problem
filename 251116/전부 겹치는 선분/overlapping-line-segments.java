@@ -14,7 +14,6 @@ public class Main {
             for(int j = a; j < b+1; j++) {
                 if(arr[j] == 1) {
                     flag = true;
-                    continue;
                 }
                 arr[j] = 1;
             }
