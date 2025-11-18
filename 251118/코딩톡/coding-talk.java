@@ -1,6 +1,6 @@
 import java.util.*;
 public class Main {
-    static char[] alpha = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+    static Character[] alpha = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
     'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     static int[] arr;
     public static void main(String[] args) {
@@ -14,10 +14,15 @@ public class Main {
         for (int i = 0; i < M; i++) {
             c[i] = sc.next().charAt(0);
             u[i] = sc.nextInt();
-            System.out.println(c[i]);
-            System.out.println(Arrays.asList(alpha).indexOf(c[i]));
+            if(i + 1 >= p) {
+                arr[Arrays.asList(alpha).indexOf(c[i])]++;
+            }
         }
         // Please write your code here.
-        
+        for(int i = 0; i < N; i++) {
+            if(arr[i] == 0) {
+                System.out.print(alpha[i] + " ");
+            }
+        }
     }
 }
