@@ -5,7 +5,7 @@ public class Main {
         int x = sc.nextInt();
         // Please write your code here.
         int ans = Integer.MAX_VALUE;
-        for(int i = 1; i < x; i++) {
+        for(int i = 1; i <= 10000; i++) {
             int cur_speed = 1;
             int cur_pos = 0;
             boolean flag = false;
