@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -6,11 +6,13 @@ public class Main {
         int b = sc.nextInt();
         int c = sc.nextInt();
         // Please write your code here.
-        if(b - a == 1 && c - b == 1) {
+        int[] arr = {a, b, c};
+        Arrays.sort(arr);
+        if(arr[1] - arr[0] == 1 && arr[2] - arr[1] == 1) {
             System.out.println(0);
-        } else if(b - a == 2 || c - b == 2) {
+        } else if(arr[1] - arr[0] == 2 || arr[2] - arr[1] == 2) {
             System.out.println(1);
-        } else if(b - a > 2 || c - b > 2) {
+        } else if(arr[1] - arr[0] > 2 || arr[2] - arr[1] > 2) {
             System.out.println(2);
         }
     }
