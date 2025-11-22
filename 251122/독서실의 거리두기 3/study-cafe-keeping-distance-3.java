@@ -23,7 +23,7 @@ public class Main {
                 if(cnt > maxDistance) {
                     maxDistance = cnt;
                     cnt = 0;
-                    spot = tmpStart + (i + tmpStart) / 2;
+                    spot = (i + tmpStart) / 2;
                     // System.out.print(spot);
                 }
                 // mid = tmpStart + (i + tmpStart) / 2;
@@ -40,6 +40,7 @@ public class Main {
         for(int i = 0; i < arr.length; i++) {
             if(arr[i] == '1' && !flag) {
                 flag = true;
+                cnt = 0;
                 continue;
             }
             cnt++;
