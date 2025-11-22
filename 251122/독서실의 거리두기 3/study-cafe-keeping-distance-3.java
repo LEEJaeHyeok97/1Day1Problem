@@ -8,48 +8,35 @@ public class Main {
         // Please write your code here.
         char[] arr = seats.toCharArray();
         // System.out.println(arr);
-        boolean flag = false;
-        int tmpStart = 0;
         int spot = 0;
+        int prev = -1;
         int maxDistance = 0;
         int cnt = 0;
         for(int i = 0; i < arr.length; i++) {
-            if(arr[i] == '1' && !flag) {
-                flag = true;
-                tmpStart = i;
-                cnt = 0;
-            } else if(arr[i] == '1' && flag) {
-                flag = false;
-                if(cnt > maxDistance) {
-                    maxDistance = cnt;
-                    cnt = 0;
-                    spot = (i + tmpStart) / 2;
-                    // System.out.print(spot);
+            if(arr[i] == '1') {
+                if(prev != -1) {
+                    int dist = i - prev;
+                    if(dist > maxDistance) {
+                        maxDistance = dist;
+                        spot = (prev + i) / 2;
+                    }
                 }
-                // mid = tmpStart + (i + tmpStart) / 2;
-                // System.out.println(mid);
-            }
 
-            cnt++;
+                prev = i;
+            } 
         }
 
         arr[spot] = '1';
         int ans = Integer.MAX_VALUE;
-        cnt = 0;
-        flag = false;
+        int prev2 = -1;
         for(int i = 0; i < arr.length; i++) {
-            if(arr[i] == '1' && !flag) {
-                flag = true;
-                cnt = 0;
-                continue;
+            if(arr[i] == '1') {
+                if(prev2 != -1) {
+                    ans = Math.min(ans, i - prev2);
+                }
+
+                prev2 = i;
             }
-            cnt++;
-            
-            if(arr[i] == '1' && flag) {
-                ans = Math.min(ans, cnt);
-                cnt = 0;
-            }
-            // System.out.print(arr[i]);
         }
 
         System.out.println(ans);
