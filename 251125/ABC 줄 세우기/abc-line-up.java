@@ -8,21 +8,19 @@ public class Main {
             arr[i] = sc.next().charAt(0);
         }
         // Please write your code here.
-        char[] sortedArr = arr.clone();
-        Arrays.sort(sortedArr);
-
-        // A B C D
-        // A D B C
         int ans = 0;
+        char tmp;
         for(int i = 0; i < n; i++) {
-            for(int j = 0; j < n; j++) {
-                if(sortedArr[i] == arr[j]) {
-                    ans += Math.abs(i - j);
-                    break;
+            for(int j = 0; j < n - 1; j++) {
+                if(arr[j] > arr[j+1]) {
+                    tmp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = tmp;
+                    ans++;
                 }
             }
         }
 
-        System.out.println(ans/2);
+        System.out.println(ans);
     }
 }
