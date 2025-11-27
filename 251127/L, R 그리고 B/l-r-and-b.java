@@ -34,14 +34,21 @@ public class Main {
             System.out.println(Math.abs(lX - bX) + Math.abs(lY - bY) - 1);
         } 
 
-        // 세로 방향 일직선
-        if(lX == bX && lY != bY && lX == rX) {
-            System.out.println(Math.abs(lY - bY) - 1 + 2);
+        else if(lY == bY) {
+            if(lY == rY && rX >= Math.min(bX, lX) && rX <= Math.max(bX, lX)) {
+                System.out.println(Math.abs(lX - bX) + Math.abs(lY - bY) + 1);
+            } else {
+                System.out.println(Math.abs(lX - bX) + Math.abs(lY - bY) - 1);
+            }
         }
 
-        // 가로 방향 일직선
-        if(lX != bX && lY == bY && lY == rY) {
-            System.out.println(Math.abs(lX - bX) - 1 + 2);
+        //세로 방향 일직선
+        else if(lX == bX) {
+            if(lX == rX && rX >= Math.min(lY, bY) && rX <= Math.max(lY, bY)) {
+                System.out.println(Math.abs(lX - bX) + Math.abs(lY - bY) + 1);
+            } else {
+                System.out.println(Math.abs(lX - bX) + Math.abs(lY - bY) - 1);
+            }
         }
     }
 }
