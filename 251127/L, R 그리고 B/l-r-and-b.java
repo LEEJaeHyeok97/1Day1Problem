@@ -44,7 +44,7 @@ public class Main {
 
         //세로 방향 일직선
         else if(lX == bX) {
-            if(lX == rX && rX >= Math.min(lY, bY) && rX <= Math.max(lY, bY)) {
+            if(lX == rX && rY >= Math.min(lY, bY) && rY <= Math.max(lY, bY)) {
                 System.out.println(Math.abs(lX - bX) + Math.abs(lY - bY) + 1);
             } else {
                 System.out.println(Math.abs(lX - bX) + Math.abs(lY - bY) - 1);
