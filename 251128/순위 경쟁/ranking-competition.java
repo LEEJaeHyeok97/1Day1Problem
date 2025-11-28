@@ -4,7 +4,7 @@ public class Main {
     static int[] score = new int[3];
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int state = -1;
+        int state = 6;
         int n = sc.nextInt();
         int ans = 0;
         for (int i = 0; i < n; i++) {
@@ -33,6 +33,6 @@ public class Main {
         if(score[0] == score[2] && score[2] > score[1]) return 4;
         if(score[1] == score[2] && score[2] > score[0]) return 5;
 
-        return 6;
+        if(score[0] == score[1] && score[1] == score[2]) return 6;
     }
 }
