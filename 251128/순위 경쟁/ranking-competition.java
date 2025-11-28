@@ -33,6 +33,6 @@ public class Main {
         if(score[0] == score[2] && score[2] > score[1]) return 4;
         if(score[1] == score[2] && score[2] > score[0]) return 5;
 
-        if(score[0] == score[1] && score[1] == score[2]) return 6;
+        return 6;
     }
 }
