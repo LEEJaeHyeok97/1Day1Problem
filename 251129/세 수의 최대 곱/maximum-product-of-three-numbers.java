@@ -31,21 +31,10 @@ public class Main {
         // 0을 포함하는 경우
         // System.out.println();
         int ans = Integer.MIN_VALUE;
-        if(Arrays.binarySearch(sortedArr, 0) > 0) {
-            // System.out.println("o");
-            //0이 존재
-            // 양 양 양
-            ans = Math.max(ans, reversedSortedArr[0] * reversedSortedArr[1] * reversedSortedArr[2]);
-            // 음 음 양
-            ans = Math.max(ans, sortedArr[0] * sortedArr[1] * sortedArr[sortedArr.length - 1]);
-        } else {
-            // System.out.println("x");
-            //0이 없는 경우
-            //양 양 양
-            ans = Math.max(ans, reversedSortedArr[0] * reversedSortedArr[1] * reversedSortedArr[2]);
-            // 음 음 양
-            ans = Math.max(ans, sortedArr[0] * sortedArr[1] * sortedArr[sortedArr.length - 1]);
-        }
+        // 양 양 양
+        ans = Math.max(ans, reversedSortedArr[0] * reversedSortedArr[1] * reversedSortedArr[2]);
+        // 음 음 양
+        ans = Math.max(ans, sortedArr[0] * sortedArr[1] * sortedArr[sortedArr.length - 1]);
 
         System.out.println(ans);
     }
