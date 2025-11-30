@@ -19,6 +19,7 @@ public class Main {
         else {
             for(int i = 0; i < n; i+=(2*m+1)) {
                 for(int j = i; j < j+2*m+1; j++) {
+                    if(j >= n) break;
                     if(arr[j] == 1) {
                         ans++;
                         break;
