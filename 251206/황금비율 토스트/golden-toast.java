@@ -17,7 +17,7 @@ public class Main {
         sc.nextLine();
 
         for (int i = 0; i < m; i++) {
-            String command = sc.nextLine();
+            String command = sc.next();
             if(command.equals("L")) {
                 if(it.hasPrevious()) {
                     it.previous();
@@ -37,8 +37,9 @@ public class Main {
                 } else {
                     continue;
                 }
-            } else if(command.charAt(0) == 'P') {
-                it.add(command.charAt(2));
+            } else if(command.equals("P")) {
+                char x = sc.next().charAt(0);
+                it.add(x);
             }
         }
         
