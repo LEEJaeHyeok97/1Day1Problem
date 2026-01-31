@@ -35,13 +35,12 @@ public class Main {
                 prev = bombs[i];
             }
 
-            if(cnt > 1) {
-                if(cnt >= m) {
-                    for(int j = bombs.length - cnt; j < bombs.length; j++) {
-                            bombs[j] = -1;
-                        }
+            if(cnt >= m) {
+                for(int j = bombs.length - cnt; j < bombs.length; j++) {
+                    bombs[j] = -1;
                 }
             }
+            
 
             int cntDelete = cntDel();
             if(cntDelete > 0) {
