@@ -96,8 +96,8 @@ public class Main {
                         if(grid[i][j] != 0) {
                             grid[i][j] = grid[i][j] * 2;
                             grid[i][j - 1] = 0;
+                            prev = -1;
                         }
-                        prev = -1;
                         continue;
                     }
 
@@ -114,8 +114,8 @@ public class Main {
                         if(grid[i][j] != 0) {
                             grid[i][j] = grid[i][j] * 2;
                             grid[i][j + 1] = 0;
+                            prev = -1;
                         }
-                        prev = -1;
                         continue;
                     }
 
@@ -132,8 +132,8 @@ public class Main {
                         if(grid[i][j] != 0) {
                             grid[i][j] = grid[i][j] * 2;
                             grid[i - 1][j] = 0;
+                            prev = -1;
                         }
-                        prev = -1;
                         continue;
                     }
 
@@ -150,8 +150,8 @@ public class Main {
                         if(grid[i][j] != 0) {
                             grid[i][j] = grid[i][j] * 2;
                             grid[i + 1][j] = 0;
+                            prev = -1;
                         }
-                        prev = -1;
                         continue;
                     }
 
