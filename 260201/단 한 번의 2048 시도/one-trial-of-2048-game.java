@@ -60,10 +60,10 @@ public class Main {
             for(int j = 0; j < 4; j++) {
                 for(int i = 0; i < 4; i++) {
                     int idx = 1;
-                    while(inRange(i + idx, j)) {
-                        if(grid[i + idx][j] == 0) {
-                            grid[i + idx][j] = grid[i + idx - 1][j];
-                            grid[i + idx - 1][j] = 0;
+                    while(inRange(i - idx, j)) {
+                        if(grid[i - idx][j] == 0) {
+                            grid[i - idx][j] = grid[i - idx + 1][j];
+                            grid[i - idx + 1][j] = 0;
                         }
                         idx+=1;
                     }
@@ -73,7 +73,7 @@ public class Main {
 
         if(d == 'D') {
             for(int j = 0; j < 4; j++) {
-                for(int i = 3; j >= 0; j++) {
+                for(int i = 3; i >= 0; i++) {
                     int idx = 1;
                     while(inRange(i + idx, j)) {
                         if(grid[i - idx][j] == 0) {
