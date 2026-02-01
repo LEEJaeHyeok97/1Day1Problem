@@ -76,9 +76,9 @@ public class Main {
                 for(int i = 3; i >= 0; i++) {
                     int idx = 1;
                     while(inRange(i + idx, j)) {
-                        if(grid[i - idx][j] == 0) {
-                            grid[i - idx][j] = grid[i - idx + 1][j];
-                            grid[i - idx + 1][j] = 0;
+                        if(grid[i + idx][j] == 0) {
+                            grid[i + idx][j] = grid[i + idx - 1][j];
+                            grid[i + idx - 1][j] = 0;
                         }
                         idx+=1;
                     }
