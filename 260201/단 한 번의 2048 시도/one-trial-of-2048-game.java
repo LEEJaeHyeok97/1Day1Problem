@@ -76,7 +76,7 @@ public class Main {
 
         if(d == 'D') {
             for(int j = 0; j < 4; j++) {
-                for(int i = 3; i >= 0; i++) {
+                for(int i = 3; i >= 0; i--) {
                     int idx = 1;
                     while(inRange(i + idx, j)) {
                         if(grid[i + idx][j] == 0) {
@@ -148,7 +148,7 @@ public class Main {
         if(d == 'D') {
             for(int j = 0; j < 4; j++) {
                 int prev = -1;
-                for(int i = 3; i >= 0; i++) {
+                for(int i = 3; i >= 0; i--) {
                     if(prev == grid[i][j]) {
                         if(grid[i][j] != 0) {
                             grid[i][j] = grid[i][j] * 2;
