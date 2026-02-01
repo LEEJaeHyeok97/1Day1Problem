@@ -93,8 +93,10 @@ public class Main {
                 int prev = -1;
                 for(int j = 0; j < 4; j++) {
                     if(prev == grid[i][j]) {
-                        grid[i][j] = grid[i][j] * 2;
-                        grid[i][j - 1] = 0;
+                        if(grid[i][j] != 0) {
+                            grid[i][j] = grid[i][j] * 2;
+                            grid[i][j - 1] = 0;
+                        }
                         prev = -1;
                         continue;
                     }
@@ -109,8 +111,10 @@ public class Main {
                     int prev = -1;
                 for(int j = 3; j >= 0; j--) {
                     if(prev == grid[i][j]) {
-                        grid[i][j] *= 2;
-                        grid[i][j + 1] = 0;
+                        if(grid[i][j] != 0) {
+                            grid[i][j] = grid[i][j] * 2;
+                            grid[i][j + 1] = 0;
+                        }
                         prev = -1;
                         continue;
                     }
@@ -125,8 +129,10 @@ public class Main {
                 int prev = -1;
                 for(int i = 0; i < 4; i++) {
                     if(prev == grid[i][j]) {
-                        grid[i][j] *= 2;
-                        grid[i - 1][j] = 0;
+                        if(grid[i][j] != 0) {
+                            grid[i][j] = grid[i][j] * 2;
+                            grid[i - 1][j] = 0;
+                        }
                         prev = -1;
                         continue;
                     }
@@ -141,8 +147,10 @@ public class Main {
                 int prev = -1;
                 for(int i = 3; i >= 0; i++) {
                     if(prev == grid[i][j]) {
-                        grid[i][j] *= 2;
-                        grid[i + 1][j] = 0;
+                        if(grid[i][j] != 0) {
+                            grid[i][j] = grid[i][j] * 2;
+                            grid[i + 1][j] = 0;
+                        }
                         prev = -1;
                         continue;
                     }
