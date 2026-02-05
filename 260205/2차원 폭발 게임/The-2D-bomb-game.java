@@ -9,7 +9,10 @@ public class Main {
         n = sc.nextInt(); // grid 가로세로
         m = sc.nextInt(); // 폭발 최소 갯수
         k = sc.nextInt(); // 과정을 k번 반복
-        if(n == 1) {
+        if(n == 1 && m == 1) {
+            System.out.println(0);
+        }
+        if(n == 1 && m > 1) {
             System.out.println(1);
         }
         grid = new int[n][n];
