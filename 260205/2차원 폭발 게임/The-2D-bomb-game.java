@@ -51,6 +51,8 @@ public class Main {
 
                 if(grid[i][j] == 0) {
                     cnt = 1;
+                    prev = -1;
+                    continue;
                 }
 
                 prev = grid[i][j];
