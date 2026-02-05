@@ -22,6 +22,7 @@ public class Main {
             gravity();
             }
             rotate();
+            gravity();
             while(bomb()) {
             gravity();
             }
