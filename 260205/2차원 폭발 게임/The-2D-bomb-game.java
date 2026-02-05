@@ -36,6 +36,18 @@ public class Main {
             cnt = 1;
             int prev = grid[0][j];
             for(int i = 1; i < n; i++) {
+                if(grid[i][j] == 0) {
+                    if(cnt >= m) {
+                    for(int k = i - 1; k >= i - cnt; k--) {
+                            grid[k][j] = 0;
+                        }
+                    }
+                    cnt = 1;
+                    cnt = 1;
+                    prev = -1;
+                    continue;
+                }
+
                 if(prev == grid[i][j]) {
                     cnt++;
                 } 
@@ -47,12 +59,6 @@ public class Main {
                         }
                     }
                     cnt = 1;
-                }
-
-                if(grid[i][j] == 0) {
-                    cnt = 1;
-                    prev = -1;
-                    continue;
                 }
 
                 prev = grid[i][j];
