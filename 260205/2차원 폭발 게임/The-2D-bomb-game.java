@@ -49,6 +49,10 @@ public class Main {
                     cnt = 1;
                 }
 
+                if(grid[i][j] == 0) {
+                    cnt = 1;
+                }
+
                 prev = grid[i][j];
             }
 
