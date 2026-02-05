@@ -31,8 +31,9 @@ public class Main {
     }
 
     static void bomb() {
+        int cnt;
         for(int j = 0; j < n; j++) {
-            int cnt = 1;
+            cnt = 1;
             int prev = -1;
             for(int i = 0; i < n; i++) {
                 if(prev == grid[i][j]) {
@@ -41,7 +42,7 @@ public class Main {
                 else {
                     if(cnt >= m) {
                         // 폭발
-                        for(int k = i - 1; k >= i - cnt + 1; k--) {
+                        for(int k = i - 1; k >= i - cnt; k--) {
                             grid[k][j] = 0;
                         }
                     }
@@ -49,6 +50,12 @@ public class Main {
                 }
 
                 prev = grid[i][j];
+            }
+
+            if(cnt >= m) {
+                for(int i = n-1; i >= n - cnt; i--) {
+                    grid[i][j] = 0;
+                }
             }
         }
     }
@@ -62,7 +69,7 @@ public class Main {
             }
 
             for(int j = 0; j < n; j++) {
-                newGrid[n-i-1][j] = tmp[j];
+                newGrid[j][n-i-1] = tmp[j];
             }
         }
 
