@@ -43,7 +43,7 @@ public class Main {
                         }
                     }
                     cnt = 1;
-                    prev = -1;
+                    prev = 0;
                     continue;
                 }
                 if(prev == grid[i][j]) {
