@@ -35,6 +35,7 @@ public class Main {
         for(int j = 0; j < n; j++) {
             cnt = 1;
             int prev = grid[0][j];
+            int end = 0;
             for(int i = 1; i < n; i++) {
                 if(grid[i][j] == 0) {
                     if(cnt >= m) {
@@ -43,7 +44,8 @@ public class Main {
                         }
                     }
                     cnt = 1;
-                    prev = 0;
+                    prev = Integer.MIN_VALUE;
+                    end = i -1;
                     continue;
                 }
                 if(prev == grid[i][j]) {
@@ -52,18 +54,19 @@ public class Main {
                 else {
                     if(cnt >= m) {
                         // 폭발
-                        for(int k = i - 1; k >= i - cnt; k--) {
+                        for(int k = end; k >= end - cnt + 1; k--) {
                             grid[k][j] = 0;
                         }
                     }
                     cnt = 1;
+                    end = i - 1;
                 }
 
                 prev = grid[i][j];
+                end = i - 1;
             }
-
             if(cnt >= m) {
-                for(int i = n-1; i >= n - cnt; i--) {
+                for(int i = end; i >= end - cnt + 1; i--) {
                     grid[i][j] = 0;
                 }
             }
