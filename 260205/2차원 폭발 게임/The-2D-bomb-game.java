@@ -34,8 +34,8 @@ public class Main {
         int cnt;
         for(int j = 0; j < n; j++) {
             cnt = 1;
-            int prev = -1;
-            for(int i = 0; i < n; i++) {
+            int prev = grid[0][j];
+            for(int i = 1; i < n; i++) {
                 if(prev == grid[i][j]) {
                     cnt++;
                 } 
