@@ -38,7 +38,7 @@ public class Main {
             for(int i = 0; i < n; i++) {
                 if(grid[i][j] == 0) {
                     if(cnt >= m) {
-                        for(int k = i - 1; k >= i - cnt; k--) {
+                        for(int k = i - 1; k >= i - cnt + 1; k--) {
                             grid[k][j] = 0;
                         }
                     }
