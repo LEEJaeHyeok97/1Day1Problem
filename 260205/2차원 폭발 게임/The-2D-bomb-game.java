@@ -17,60 +17,85 @@ public class Main {
         
         ans = 0;
         for(int i = 0; i < k; i++) {
-            bomb();
+            // bomb();
+            while(bomb()) {
             gravity();
+            }
             rotate();
+            while(bomb()) {
             gravity();
+            }
+            // gravity();
         }
 
         //최종적으로 상자에 남아있는 폭타의 수를 출력
-        bomb();
         countBomb();
 
         System.out.println(ans);
     }
 
-    static void bomb() {
-        int cnt;
+    static boolean bomb() {
+        boolean flag = false;
+
         for(int j = 0; j < n; j++) {
-            cnt = 1;
-            int prev = grid[0][j];
-            int end = 0;
-            for(int i = 1; i < n; i++) {
+            int cnt = 0;
+            int prev = 0;
+            int end = -1;
+            for(int i = 0; i < n; i++) {
                 if(grid[i][j] == 0) {
                     if(cnt >= m) {
-                        for(int k = i - 1; k >= i - cnt; k--) {
-                            grid[k][j] = 0;
+                        for (int r = end; r >= end - cnt + 1; r--) {
+                            if (grid[r][j] != 0) {
+                                grid[r][j] = 0;
+                                flag = true;
+                            }
                         }
                     }
-                    cnt = 1;
-                    prev = Integer.MIN_VALUE;
-                    end = i -1;
+                    cnt = 0;
+                    prev = 0;
+                    end = -1;
                     continue;
                 }
+
+                if (cnt == 0) {
+                prev = grid[i][j];
+                cnt = 1;
+                end = i;
+                continue;
+                }
+    
                 if(prev == grid[i][j]) {
                     cnt++;
+                    end = i;
                 } 
                 else {
                     if(cnt >= m) {
                         // 폭발
                         for(int k = end; k >= end - cnt + 1; k--) {
-                            grid[k][j] = 0;
+                            if(grid[k][j] != 0) {
+                                grid[k][j] = 0;
+                                flag = true;
+                            }
                         }
                     }
+                    prev = grid[i][j];
                     cnt = 1;
-                    end = i - 1;
+                end = i;
                 }
 
-                prev = grid[i][j];
-                end = i - 1;
+                // prev = grid[i][j];
+                // end = i - 1;
             }
             if(cnt >= m) {
                 for(int i = end; i >= end - cnt + 1; i--) {
-                    grid[i][j] = 0;
+                    if(grid[i][j] != 0) {
+                        grid[i][j] = 0;
+                        flag = true;
+                    }
                 }
             }
         }
+        return flag;
     }
 
     static void rotate() {
