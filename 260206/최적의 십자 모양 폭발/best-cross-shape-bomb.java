@@ -59,8 +59,8 @@ public class Main {
         tmpGrid[row][col] = 0;
         for(int i = 0; i < power - 1; i++) {
             for(int j = 0; j < 4; j++) {
-                int nx = row + dx[j];
-                int ny = col + dy[j];
+                int nx = row + dx[j]*(i + 1);
+                int ny = col + dy[j]*(i + 1);
                 if(inRange(nx, ny)) {
                     tmpGrid[nx][ny] = 0;
                 }
