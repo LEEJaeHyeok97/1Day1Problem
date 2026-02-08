@@ -24,8 +24,9 @@ public class Main {
                 for(int j = 0; j < n; j++) {
                     if(grid[i][j] <= curT - 1 && grid[i][j] > 0) {
                         for(int i2 = 0; i2 < 4; i2++) {
-                            int nx = i + dx[i2] * (idx+1);
-                            int ny = j + dy[i2] * (idx+1);
+                            int tmp = 1 << idx;
+                            int nx = i + dx[i2] * tmp;
+                            int ny = j + dy[i2] * tmp;
                             if(inRange(nx, ny)) {
                                 if(grid[nx][ny] == 0) {
                                     grid[nx][ny] = curT;
