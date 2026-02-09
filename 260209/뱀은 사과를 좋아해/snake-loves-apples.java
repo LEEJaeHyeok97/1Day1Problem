@@ -20,7 +20,7 @@ class Point {
 public class Main {
 
     static int n, m, k;
-    static int curX, curY, curSize;
+    static int curX, curY;
     static int[][] grid;
     static int[] dx = {0, 0, -1, 1}; // 좌, 우, 상, 하
     static int[] dy = {-1, 1, 0, 0};
@@ -34,7 +34,6 @@ public class Main {
         grid = new int[n][n];
         curX = 0;
         curY = 0;
-        curSize = 1;
         grid[curX][curY] = 2; // 뱀의 존재 여부
         q.add(new Point(curX, curY));
         for (int i = 0; i < m; i++) {
@@ -69,26 +68,25 @@ public class Main {
                 }
 
                 if(inRange(nx, ny)) {
-                        if(grid[nx][ny] == 2) { // 몸이 겹쳐지는 경우 종료
-                            System.out.println(++time);
-                            return;
-                        }
-
                         if(grid[nx][ny] == 1) { // 사과가 존재
-                            grid[nx][ny] = 2;
                             q.add(new Point(nx, ny));
                         }
                         else { //사과가 없을 때
-                            grid[nx][ny] = 2;
                             Point point = q.poll();
                             grid[point.x][point.y] = 0;
                             q.add(new Point(nx, ny));
                         }
                 }
                 else { // 경계를 넘어서는 경우
-                    break;
+                    System.out.println(++time);
+                    return;
                 }
 
+                if(grid[nx][ny] == 2) { // 몸이 겹쳐지는 경우 종료
+                    System.out.println(++time);
+                    return;
+                }
+                grid[nx][ny] = 2;
                 curX = nx;
                 curY = ny;
                 time++;
