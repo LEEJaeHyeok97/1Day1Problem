@@ -57,8 +57,13 @@ public class Main {
                 arr.add(new Point(x, y, d));
             }
 
+            int cells = N * N;
+            int[] cnt = new int[cells];
+            int[] seen = new int[cells];
+            int turn = 0;
             for(int rep = 0; rep < 2*N; rep++) {
-                HashMap<Integer, Integer> cnt = new HashMap<>();
+                turn++;
+
                 for(Point p : arr) {
                     int nx = p.x;
                     int ny = p.y;
@@ -89,17 +94,23 @@ public class Main {
                     }
 
                     int key = p.x*N + p.y;
-                    cnt.put(key, cnt.getOrDefault(key, 0) + 1);
+                    if (seen[key] != turn) {
+                        seen[key] = turn;
+                        cnt[key] = 1;
+                    } else {
+                        cnt[key]++;
+                    }
                 }
 
                 // 위치가 겹치는 구슬들 삭제 작업
                 ArrayList<Point> tmpArr = new ArrayList<>();
                 for(Point p : arr) {
                     int key = p.x*N + p.y;
-                    if(cnt.get(key) == 1) tmpArr.add(p);
+                    if(cnt[key] == 1) tmpArr.add(p);
                 }
 
                 arr = tmpArr;
+                if(arr.size() <= 1) break;
             }
 
             System.out.println(arr.size());
