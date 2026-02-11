@@ -54,10 +54,8 @@ public class Main {
             }
 
             for(int rep = 0; rep < 2*N; rep++) {
-                grid = new int[N][N];
-                for(int k = 0; k < arr.size(); k++) {
-                    Point p = arr.get(k);
-
+                HashMap<Integer, Integer> cnt = new HashMap<>();
+                for(Point p : arr) {
                     int nx = p.x;
                     int ny = p.y;
                     char d = p.d;
@@ -81,22 +79,20 @@ public class Main {
 
                     if(inRange(nx, ny)) {
                         p.setXY(nx, ny);
-                        grid[nx][ny] += 1;
                     }
                     else { // 방향 전환
                         p.setReverseDir(d);
-                        grid[p.x][p.y]++;
                     }
+
+                    int key = p.x*N + p.y;
+                    cnt.put(key, cnt.getOrDefault(key, 0) + 1);
                 }
 
                 // 위치가 겹치는 구슬들 삭제 작업
                 ArrayList<Point> tmpArr = new ArrayList<>();
-                for(int i = 0; i < arr.size(); i++) {
-                    Point p = arr.get(i);
-
-                    if(grid[p.x][p.y] == 1) {
-                        tmpArr.add(p);
-                    }
+                for(Point p : arr) {
+                    int key = p.x*N + p.y;
+                    if(cnt.get(key) == 1) tmpArr.add(p);
                 }
 
                 arr = tmpArr;
