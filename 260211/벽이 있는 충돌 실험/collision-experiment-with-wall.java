@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 // n * n 격자, m개의 구슬
 // 구슬은 1초에 한 칸씩 동일한 속도로 움직인다.
@@ -38,17 +39,20 @@ public class Main {
     static int[][] grid;
     static int[] dx = {-1, 1, 0, 0}; // 상 하 좌 우
     static int[] dy = {0, 0, -1, 1};
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int T = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
+        int T = Integer.parseInt(br.readLine());
         while(T-- > 0) {
-            N = sc.nextInt();
-            M = sc.nextInt();
+            st = new StringTokenizer(br.readLine());
+            N = Integer.parseInt(st.nextToken());
+            M = Integer.parseInt(st.nextToken());
             ArrayList<Point> arr = new ArrayList<>();
             for (int i = 0; i < M; i++) {
-                int x = sc.nextInt() - 1;
-                int y = sc.nextInt() - 1;
-                char d = sc.next().charAt(0);
+                st = new StringTokenizer(br.readLine());
+                int x = Integer.parseInt(st.nextToken()) - 1;
+                int y = Integer.parseInt(st.nextToken()) - 1;
+                char d = st.nextToken().charAt(0);
 
                 arr.add(new Point(x, y, d));
             }
