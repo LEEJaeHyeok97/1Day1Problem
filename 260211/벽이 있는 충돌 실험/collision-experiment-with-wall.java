@@ -53,7 +53,7 @@ public class Main {
                 arr.add(new Point(x, y, d));
             }
 
-            for(int rep = 0; rep < 90; rep++) {
+            for(int rep = 0; rep < 2*N; rep++) {
                 grid = new int[N][N];
                 for(int k = 0; k < arr.size(); k++) {
                     Point p = arr.get(k);
