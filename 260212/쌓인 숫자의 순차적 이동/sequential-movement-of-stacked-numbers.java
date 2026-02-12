@@ -19,6 +19,7 @@ public class Main {
         grid = new ArrayList[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
+                grid[i][j] = new ArrayList<>();
                 int num = sc.nextInt();
                 grid[i][j].add(num);
             }
@@ -26,7 +27,7 @@ public class Main {
         for (int i = 0; i < m; i++) {
             int num = sc.nextInt();
 
-            // move(num);
+            move(num);
         }
 
         for(int i = 0; i < n; i++) {
@@ -44,5 +45,61 @@ public class Main {
                 System.out.println();
             }
         }
+    }
+
+    static void move(int num) {
+        int floor = 0;
+        int x = -1;
+        int y = -1;
+
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n; j++) {
+                ArrayList<Integer> tmp = grid[i][j];
+                for(int k = 0; k < tmp.size(); k++) {
+                    if(tmp.get(k) == num) {
+                        x = i;
+                        y = j;
+                        floor = k;
+                    }
+                }
+            }
+        }
+
+        // 움직일 곳 탐색
+        int maxValue = Integer.MIN_VALUE;
+        int r = -1;
+        int c = -1;
+        int nx = -1;
+        int ny = -1;
+        for(int i = 0; i < 8; i++) {
+            nx = x + dx[i];
+            ny = y + dy[i];
+
+            if(inRange(nx, ny)) {
+                ArrayList<Integer> tmp= grid[nx][ny];
+                for(int k = 0; k < tmp.size(); k++) {
+                    if(maxValue < tmp.get(k)) {
+                        maxValue = tmp.get(k);
+                        r = nx;
+                        c = ny;
+                    }
+                }
+            }
+        }
+
+        if(r == -1) return;
+
+        // 찾은 위치로 이동
+        int gridSize = grid[x][y].size();
+        for(int i = floor; i < gridSize; i++) {
+            int a = grid[x][y].get(floor);
+            grid[r][c].add(a);
+            grid[x][y].remove(floor);
+        }
+    }
+
+    static boolean inRange(int r, int c) {
+        if((0 <= r && r < n) && (0 <= c && c < n)) return true;
+        return false;
     }
 }
