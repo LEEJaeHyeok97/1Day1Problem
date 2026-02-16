@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 // n x n 격자(0, 1로 구성)
 // 1은 해당 위치에 폭탄이 놓임
