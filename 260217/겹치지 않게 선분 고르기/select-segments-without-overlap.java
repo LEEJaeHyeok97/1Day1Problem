@@ -34,9 +34,10 @@ public class Main {
         for(int i = cnt; i < n; i++) {
             int left = segments[i][0];
             int right = segments[i][1];
+
             if(!isMeet(left, right)) {
                 selected.add(new Pair(left, right));
-                selectSegments(cnt + 1);
+                selectSegments(i + 1);
                 selected.remove(selected.size() - 1);
             }
         }
