@@ -37,7 +37,7 @@ public class Main {
     static void selectLine(int selectedCnt) {
         ans = Math.max(ans, selectedLine.size());
 
-        for(int i = 0; i < segments.length; i++) {
+        for(int i = selectedCnt; i < segments.length; i++) {
             int left = segments[i][0];
             int right = segments[i][1];
 
