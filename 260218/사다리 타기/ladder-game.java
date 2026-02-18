@@ -31,10 +31,10 @@ public class Main {
         for(int i = 0; i < m; i++){
             int a = sc.nextInt();
             int b = sc.nextInt();
-            lines.add(new Line(b, a));
+            lines.add(new Line(a, b));
         }
 
-        lines.sort(Comparator.comparint((Line l) -> l.row).thenComparingInt(l -> l.col));
+        lines.sort(Comparator.comparingInt((Line l) -> l.row).thenComparingInt(l -> l.col));
         res = simulate(lines);
 
         ans = m;
@@ -44,6 +44,8 @@ public class Main {
     }
 
     static void selectLine(int cnt) {
+        if(selected.size() >= ans) return;
+
         if(isMatch(calc())) {
             ans = Math.min(ans, selected.size());
             return;
@@ -66,6 +68,10 @@ public class Main {
 
         for(Line ln : use) {
             int c = ln.col;
+
+            if (c < 1 || c >= n) {
+                throw new IllegalArgumentException("Invalid col: " + c);
+            }
             int tmp = pos[c];
             pos[c] = pos[c+1];
             pos[c+1] = tmp;
@@ -75,7 +81,7 @@ public class Main {
     }
 
     static boolean isMatch(int[] input) {
-        for(int i = 0; i < n; i++) {
+        for(int i = 1; i < n + 1; i++) {
             if(input[i] != res[i]) {
                 return false;
             }
