@@ -5,12 +5,15 @@ public class Main {
     
     static int k, n;
     static ArrayList<Integer> arr = new ArrayList<>();
+    static StringBuilder sb = new StringBuilder();
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         k = sc.nextInt();
         n = sc.nextInt();
 
         backtracking(0);
+
+        System.out.println(sb);
     }
 
     static void backtracking(int cnt) {
@@ -21,7 +24,6 @@ public class Main {
 
         for(int i = 1; i <= k; i++) {
             if(cnt >= 2 && (arr.get(arr.size() - 1) == i && arr.get(arr.size() - 2) == i)) continue;
-
             arr.add(i);
             backtracking(cnt + 1);
             arr.remove(arr.size() - 1);
@@ -30,8 +32,9 @@ public class Main {
 
     static void printNumbers() {
         for(int i = 0; i < arr.size(); i++) {
-            System.out.printf("%d ", arr.get(i));
+            sb.append(arr.get(i));
+            sb.append(" ");
         }
-        System.out.println();
+        sb.append("\n");
     }
 }
