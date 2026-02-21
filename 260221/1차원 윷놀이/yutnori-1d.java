@@ -35,16 +35,11 @@ public class Main {
 
     static void backtracking(int cnt) {
         if(cnt == n) {
-            // System.out.println("====");
-            // System.out.printf("%d %d %d %d\n", pos[0], pos[1], pos[2], pos[3]);
-        
             ans = Math.max(ans, calc());
             return;
         }
 
         for(int i = 1; i <= k; i++) {
-            if (pos[i] >= m) continue;
-
             arr.add(i);
             int prev = pos[i];
             pos[i] = Math.min(m, pos[i] + nums[cnt]);
