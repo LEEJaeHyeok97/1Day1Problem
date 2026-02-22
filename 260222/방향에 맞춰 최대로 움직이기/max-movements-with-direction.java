@@ -68,7 +68,7 @@ public class Main {
         }
 
         
-        for(int i = 0; i < n; i++) {
+        for(int i = 1; i < n; i++) {
             int nx = r + dx[dir] * i;
             int ny = c + dy[dir] * i;
 
