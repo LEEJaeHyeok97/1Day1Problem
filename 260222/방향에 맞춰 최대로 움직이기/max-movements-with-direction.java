@@ -62,7 +62,7 @@ public class Main {
 
     static void backtracking(int cnt) {
         if(!hasValidPos()) {
-            ans = Math.max(ans, arr.size());
+            ans = Math.max(ans, arr.size() - 1);
             // System.out.println(r + " " + c);
             return;
         }
@@ -89,13 +89,14 @@ public class Main {
 
     static boolean hasValidPos() {// 갈 수 있는 위치가 하나라도 존재하는지 확인
         for(int i = 1; i < n; i++) {
-            int nx = r + dx[dir];
-            int ny = c + dy[dir];
+            int nx = r + dx[dir] * i;
+            int ny = c + dy[dir] * i;
 
-            if(inRange(nx, ny)) {
-                if(num[nx][ny] > num[r][c])
-                    return true;
+            if(!inRange(nx, ny)) {
+                break;
             } 
+            if(num[nx][ny] > num[r][c])
+                return true;
         }
 
         return false;
