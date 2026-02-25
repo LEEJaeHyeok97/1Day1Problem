@@ -24,7 +24,7 @@ public class Main {
     }
 
     static void choose(int curNum, int cnt) {
-        if(curNum == n) {
+        if(curNum == n || cnt == m) {
             ans = Math.max(ans, calc());
 
             return;
