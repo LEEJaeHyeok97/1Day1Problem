@@ -24,7 +24,7 @@ public class Main {
     }
 
     static void choose(int curNum, int cnt) {
-        if(curNum == n - 1) {
+        if(curNum == n) {
             ans = Math.max(ans, calc());
 
             return;
@@ -36,11 +36,11 @@ public class Main {
         //     arr.remove(arr.size() - 1);
         // }
 
+        choose(curNum + 1, cnt);
 
         arr.add(A[curNum]);
         choose(curNum + 1, cnt + 1);
         arr.remove(arr.size() - 1);
-        choose(curNum + 1, cnt);
     }
 
     static int calc() {
