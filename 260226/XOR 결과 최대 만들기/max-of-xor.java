@@ -36,11 +36,11 @@ public class Main {
         //     arr.remove(arr.size() - 1);
         // }
 
-        choose(curNum + 1, cnt);
 
         arr.add(A[curNum]);
         choose(curNum + 1, cnt + 1);
         arr.remove(arr.size() - 1);
+        
     }
 
     static int calc() {
