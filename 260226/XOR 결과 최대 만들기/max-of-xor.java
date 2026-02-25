@@ -24,12 +24,12 @@ public class Main {
     }
 
     static void choose(int curNum, int cnt) {
-        if(curNum == n) return;
         if(cnt == m) {
             ans = Math.max(ans, calc());
 
             return;
         }
+        if(curNum == n) return;
 
         // for(int i = 0; i < n; i++) {
         //     arr.add(A[i]);
