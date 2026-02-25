@@ -24,7 +24,7 @@ public class Main {
     }
 
     static void choose(int curNum, int cnt) {
-        if(curNum == n || cnt == m) {
+        if(curNum == n) {
             ans = Math.max(ans, calc());
 
             return;
@@ -44,7 +44,8 @@ public class Main {
     }
 
     static int calc() {
-        int tmp = A[0];
+        if(arr.size() == 0) return 0;
+        int tmp = arr.get(0);
         for(int i = 1; i < arr.size(); i++) {
             tmp ^= arr.get(i);
         }
