@@ -40,7 +40,7 @@ public class Main {
         arr.add(A[curNum]);
         choose(curNum + 1, cnt + 1);
         arr.remove(arr.size() - 1);
-        
+        choose(curNum + 1, cnt);
     }
 
     static int calc() {
