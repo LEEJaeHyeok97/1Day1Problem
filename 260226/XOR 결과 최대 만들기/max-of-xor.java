@@ -18,24 +18,29 @@ public class Main {
         }
         // Please write your code here.
         // 1 11 101
-        choose(0);
+        choose(0, 0);
 
         System.out.println(ans);
     }
 
-    static void choose(int cnt) {
-        if(cnt == m) {
-            // System.out.println(calc());
+    static void choose(int curNum, int cnt) {
+        if(curNum == n - 1) {
             ans = Math.max(ans, calc());
 
             return;
         }
 
-        for(int i = 0; i < n; i++) {
-            arr.add(A[i]);
-            choose(cnt + 1);
-            arr.remove(arr.size() - 1);
-        }
+        // for(int i = 0; i < n; i++) {
+        //     arr.add(A[i]);
+        //     choose(cnt + 1);
+        //     arr.remove(arr.size() - 1);
+        // }
+
+        choose(curNum + 1, cnt);
+
+        arr.add(A[curNum]);
+        choose(curNum + 1, cnt + 1);
+        arr.remove(arr.size() - 1);
     }
 
     static int calc() {
