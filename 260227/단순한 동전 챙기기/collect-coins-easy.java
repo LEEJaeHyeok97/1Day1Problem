@@ -18,6 +18,9 @@ public class Main {
     static int startX;
     static int startY;
 
+    static int curX;
+    static int curY;
+
     static int endX;
     static int endY;
 
@@ -35,6 +38,8 @@ public class Main {
                 if(grid[i].charAt(j) == 'S') {
                     startX = i;
                     startY = j;
+                    curX = i;
+                    curY = j;
                 }
                 if(grid[i].charAt(j) == 'E') {
                     endX = i;
@@ -81,21 +86,23 @@ public class Main {
 
     static int calcTotalDist() {
         int moveCnt = 0;
+        curX = startX;
+        curY = startY;
 
         for(int i = 0; i < selected.size(); i++) {
             moveCnt += calcDist(selected.get(i));
         }
 
-        return moveCnt + Math.abs(startX - endX) + Math.abs(startY - endY);
+        return moveCnt + Math.abs(curX - endX) + Math.abs(curY - endY);
     }
 
     static int calcDist(int targetNum) {
         for(int i = 0; i < N; i++) {
             for(int j = 0; j < N; j++) {
                 if(Character.getNumericValue(grid[i].charAt(j)) == targetNum) {
-                    int v = Math.abs(startX - i) + Math.abs(startY - j);
-                    startX = i;
-                    startY = j;
+                    int v = Math.abs(curX - i) + Math.abs(curY - j);
+                    curX = i;
+                    curY = j;
                     return v;
                 }
             }
