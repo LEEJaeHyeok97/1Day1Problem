@@ -21,7 +21,7 @@ public class Main {
 
         choose(0, 0);
 
-        System.out.println((int)Math.pow(Math.sqrt(ans), 2));
+        System.out.println(ans);
     }
 
     static void choose(int curNum, int cnt) {
