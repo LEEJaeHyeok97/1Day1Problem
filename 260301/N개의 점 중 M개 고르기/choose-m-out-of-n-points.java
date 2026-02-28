@@ -33,11 +33,11 @@ public class Main {
             return;
         }
 
+        choose(curNum + 1, cnt);
+
         selected.add(curNum);
         choose(curNum + 1, cnt + 1);
         selected.remove(selected.size() - 1);
-
-        choose(curNum + 1, cnt);
     }
 
     static int calc() {
