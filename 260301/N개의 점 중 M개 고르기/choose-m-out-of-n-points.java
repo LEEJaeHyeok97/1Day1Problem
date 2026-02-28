@@ -4,7 +4,7 @@ import java.util.*;
 // 거리값이 최소가 되도록 하는 프로그램
 public class Main {
 
-    static double ans = Integer.MAX_VALUE;
+    static int ans = Integer.MAX_VALUE;
     static int n, m;
     static int[][] points;
 
@@ -21,7 +21,7 @@ public class Main {
 
         choose(0, 0);
 
-        System.out.println((int)Math.pow(ans, 2));
+        System.out.println((int)Math.pow(Math.sqrt(ans), 2));
     }
 
     static void choose(int curNum, int cnt) {
@@ -40,14 +40,14 @@ public class Main {
         choose(curNum + 1, cnt);
     }
 
-    static double calc() {
-        double gap = Integer.MIN_VALUE;
+    static int calc() {
+        int gap = Integer.MIN_VALUE;
         for(int i = 0; i < m; i++) {
             for(int j = i+1; j < m; j++) {
                 int t1 = selected.get(i);
                 int t2 = selected.get(j);
 
-                double tmp = Math.sqrt((int)Math.pow(points[t1][0] - points[t2][0], 2) + (int)Math.pow(points[t1][1] - points[t2][1], 2));
+                int tmp = ((int)Math.pow(points[t1][0] - points[t2][0], 2) + (int)Math.pow(points[t1][1] - points[t2][1], 2));
                 // System.out.println(tmp);
                 gap = Math.max(gap, tmp);
             }
