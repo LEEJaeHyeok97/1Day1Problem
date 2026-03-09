@@ -68,10 +68,12 @@ public class Main {
             // System.out.println();
             // System.out.println("=====");
 
-            for(int i = 0; i < m; i++) {
-                Pair p = stones.get(selected.get(i));
-                int r = p.x;
-                int c = p.y;
+            for(int i = 0; i < startPoints.length; i++) {
+                // Pair p = stones.get(selected.get(i));
+                // int r = p.x;
+                // int c = p.y;
+                int r = startPoints[i][0];
+                int c = startPoints[i][1];
                 
                 resetVisited();
                 q.clear();
