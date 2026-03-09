@@ -62,27 +62,17 @@ public class Main {
 
     static void backtracking(int curNum, int cnt) {
         if(selected.size() == m) {
-            // for(int z = 0; z < selected.size(); z++) {
-            //     System.out.print(selected.get(z) + " ");
-            // }
-            // System.out.println();
-            // System.out.println("=====");
+            resetVisited();
+            q.clear();
 
             for(int i = 0; i < startPoints.length; i++) {
-                // Pair p = stones.get(selected.get(i));
-                // int r = p.x;
-                // int c = p.y;
                 int r = startPoints[i][0];
                 int c = startPoints[i][1];
-                
-                resetVisited();
-                q.clear();
 
                 q.add(new Pair(r, c));
                 visited[r][c] = true;
-                bfs();
             }
-
+            bfs();
             return;
         }
 
