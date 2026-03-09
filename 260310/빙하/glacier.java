@@ -87,7 +87,7 @@ public class Main {
             flag = false;
             return;
         }
-        lastMeltlCnt = tmpCnt;
+        lastMeltCnt = tmpCnt;
         t+=1;
     }
 
