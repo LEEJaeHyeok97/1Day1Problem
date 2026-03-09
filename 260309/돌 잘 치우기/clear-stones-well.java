@@ -24,7 +24,6 @@ public class Main {
     static int[] dy = {-1, 1, 0, 0};
 
     static Deque<Pair> q = new ArrayDeque<>();
-    static ArrayList<Integer> candidate = new ArrayList<>();
     static ArrayList<Integer> selected = new ArrayList<>();
     static ArrayList<Pair> stones = new ArrayList<>();
     public static void main(String[] args) {
@@ -58,9 +57,7 @@ public class Main {
         // 뽑은 경우에 시행. (bfs())
 
 
-        Collections.sort(candidate, Collections.reverseOrder());
-        // System.out.println(ans);
-        System.out.println(candidate.get(0));
+        System.out.println(ans);
     }
 
     static void backtracking(int curNum, int cnt) {
@@ -82,7 +79,6 @@ public class Main {
                 q.add(new Pair(r, c));
                 visited[r][c] = true;
                 bfs();
-                candidate.add(ans);
             }
 
             return;
