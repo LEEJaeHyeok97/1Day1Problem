@@ -10,7 +10,7 @@ class Pair {
     int x;
     int y;
 
-    public Pair(x, y) {
+    public Pair(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -44,8 +44,10 @@ public class Main {
         visited = new boolean[n][m];
         while(flag) {
             q.clear();
-            q.add(new Pair(0, 0));
             resetVisited();
+            
+            q.add(new Pair(0, 0));
+            visited[0][0] = true;
             bfs();
         }
 
@@ -82,10 +84,10 @@ public class Main {
             grid[p.x][p.y] = 0;
         }
         if(tmpCnt == 0) {
-            flag = true;
+            flag = false;
             return;
         }
-        lastMetlCnt = tmpCnt;
+        lastMeltlCnt = tmpCnt;
         t+=1;
     }
 
