@@ -49,6 +49,7 @@ public class Main {
             Pair p = q.poll();
             int x = p.x;
             int y = p.y;
+            
             for(int i = 0; i < 4; i++) {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
