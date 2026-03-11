@@ -40,7 +40,8 @@ public class Main {
         step[0][0] = 0;
         bfs();
 
-        System.out.println(step[n-1][m-1]);
+        if(step[n-1][m-1] == 0) System.out.println(-1);
+        else System.out.println(step[n-1][m-1]);
     }
 
     static void bfs() {
@@ -49,7 +50,7 @@ public class Main {
             Pair p = q.poll();
             int x = p.x;
             int y = p.y;
-            
+
             for(int i = 0; i < 4; i++) {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
