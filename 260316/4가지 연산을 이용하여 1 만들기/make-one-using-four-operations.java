@@ -1,12 +1,7 @@
 import java.util.*;
-
-// 정수 N을 4가지 연산을 적절히 활용하여 연산의 횟수를 최소화하여
-// 숫자 1을 만든다.
-// -1, +1, 2로 나눠떨어질 경우 /2, 3으로 나눠떨어질 경우 /3
-// bfs() -> 1이 될 경우 stop?
-// bfs 를 연산 시퀀스 관점이 아닌 숫자 상태의 수로 봐야한다.
 public class Main {
-    static final int INT_MAX = Integer.MAX_VALUE;
+
+    static final int MAX_N = 1000000;
     static final int OPERATOR_NUM = 4;
 
     static final int SUBTRACT = 0;
@@ -16,12 +11,16 @@ public class Main {
 
     static int n;
 
-    static int ans = INT_MAX;
+    static Deque<Integer> q = new ArrayDeque<>();
+    static boolean[] visited = new boolean[MAX_N * 2];
+    static int[] step = new int[MAX_N * 2];
+    static int ans;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
 
-        findMin(n, 0);
+        push(n, 0);
+        findMin();
 
         System.out.println(ans);
     }
@@ -36,27 +35,50 @@ public class Main {
     }
 
     static int calculate(int num, int op) {
-        if(op == SUBTRACT)
+        if(op == SUBTRACT) {
             return num - 1;
-        else if(op == ADD)
+        }
+        else if(op == ADD) {
             return num + 1;
-        else if(op == DIV2)
+        }
+        else if(op == DIV2) {
             return num / 2;
-        else
+        }
+        else {
             return num / 3;
+        }
     }
 
-    static void findMin(int num, int cnt) {
-        if(num == 1) {
-            ans = Math.min(ans, cnt);
-            return;
+    static void findMin() {
+        while(!q.isEmpty()) {
+            int curNum = q.poll();
+
+            for(int i = 0; i < OPERATOR_NUM; i++) {
+                if(!possible(curNum, i))
+                    continue;
+
+                int newNum = calculate(curNum, i);
+
+                if(canGo(newNum)) {
+                    push(newNum, step[curNum] + 1);
+                }
+            }
         }
 
-        if(cnt >= n - 1)
-            return;
+        ans = step[1];
+    }
 
-        for(int i = 0; i < OPERATOR_NUM; i++) 
-            if(possible(num, i))
-                findMin(calculate(num, i), cnt + 1);
+    static boolean canGo(int newNum) {
+        return inRange(newNum) && !visited[newNum];
+    }
+
+    static void push(int newNum, int newStep) {
+        q.add(newNum);
+        visited[newNum] = true;
+        step[newNum] = newStep;
+    }
+
+    static boolean inRange(int num) {
+        return 1 <= num && num <= 2*n - 1;
     }
 }
