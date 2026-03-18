@@ -14,7 +14,7 @@ public class Main {
 
         dp = new int[n + 1];
         for(int i = 0; i < n + 1; i++) {
-            dp[i] = 0;
+            dp[i] = -1;
         }
 
         dp[0] = 1;
@@ -25,6 +25,7 @@ public class Main {
             dp[i] = dp[i - 2] + dp[i - 3];
         }
 
-        System.out.println(dp[n] % 10007);
+        if(dp[n] == -1) System.out.println(0);
+        else System.out.println(dp[n] % 10007);
     }
 }
