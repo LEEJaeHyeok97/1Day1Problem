@@ -1,26 +1,36 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 
-// n 층 높이 계단을 오르려고 한다.
-// 항상 2계단 혹은 3계단 단위로만 올라갈 수 있다.
-// 바텀업 -> dp
-// n층 높이의 계단에 올라가기 위한 서로 다른 방법의 수를 10007로 나눈 나머지를 출력.
-// 불가능하다면 0을 출력.
 public class Main {
-
-    static int[] dp = new int[1001];
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+        
+        // n 자체가 매우 클 수 있으므로 String으로 받아 BigInteger 생성
+        // 하지만 배열의 인덱스로 사용하려면 intValue() 변환이 필요합니다.
+        int n = sc.nextInt(); 
 
-        dp[0] = 1;
-        dp[1] = 0;
-        dp[2] = 1;
-        dp[3] = 1;
-
-        for(int i = 4; i < n + 1; i++) {
-            dp[i] = (dp[i - 2] + dp[i - 3]);
+        if (n < 2) {
+            System.out.println(0);
+            return;
         }
 
-        System.out.println(dp[n]  % 10007);
+        // BigInteger 배열 선언
+        BigInteger[] dp = new BigInteger[n + 1];
+
+        // 초기값 설정 (BigInteger 객체로 생성)
+        dp[0] = BigInteger.ONE;
+        if (n >= 1) dp[1] = BigInteger.ZERO;
+        if (n >= 2) dp[2] = BigInteger.ONE;
+        if (n >= 3) dp[3] = BigInteger.ONE;
+
+        // 바텀업 DP 진행
+        for (int i = 4; i <= n; i++) {
+            // add 메서드를 사용하여 연산
+            dp[i] = dp[i - 2].add(dp[i - 3]);
+        }
+
+        // 나머지 연산 (remainder 메서드 사용)
+        BigInteger mod = new BigInteger("10007");
+        System.out.println(dp[n].remainder(mod));
     }
 }
