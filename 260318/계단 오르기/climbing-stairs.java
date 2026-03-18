@@ -7,33 +7,20 @@ import java.util.Scanner;
 // 불가능하다면 0을 출력.
 public class Main {
 
-    static int[] dp;
+    static int[] dp = new int[1001];
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        if(n > 2) {
-            dp = new int[n + 1];
-        } else {
-            dp = new int[3];
-        }
-        for(int i = 0; i < n + 1; i++) {
-            dp[i] = -1;
-        }
-
         dp[0] = 1;
         dp[1] = 0;
         dp[2] = 1;
-        if(n < 3) {
-            System.out.println(dp[n]);
-            System.exit(0);
-        }
+        dp[3] = 1;
 
-        for(int i = 3; i < n + 1; i++) {
+        for(int i = 4; i < n + 1; i++) {
             dp[i] = dp[i - 2] + dp[i - 3];
         }
 
-        if(dp[n] == -1) System.out.println(0);
-        else System.out.println(dp[n] % 10007);
+        System.out.println(dp[n] % 10007);
     }
 }
