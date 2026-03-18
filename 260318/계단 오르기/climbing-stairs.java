@@ -43,7 +43,7 @@ public class Main {
         if(dp[n] == -1) {
             System.out.println(0);
         } else {
-            System.out.println(dp[n]);
+            System.out.println(dp[n] % 10007);
         }
     }
 }
