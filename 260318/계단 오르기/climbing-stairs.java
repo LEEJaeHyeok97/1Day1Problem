@@ -12,7 +12,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        dp = new int[n + 1];
+        if(n > 2) {
+            dp = new int[n + 1];
+        } else {
+            dp = new int[3];
+        }
         for(int i = 0; i < n + 1; i++) {
             dp[i] = -1;
         }
