@@ -40,7 +40,7 @@ public class Main {
         // }
         // System.out.println();
 
-        if(dp[n] == -1) {
+        if(dp[n] == 0) {
             System.out.println(0);
         } else {
             System.out.println(dp[n] % 10007);
