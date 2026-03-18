@@ -20,18 +20,8 @@ public class Main {
         dp[0] = 1;
         dp[1] = 0;
         dp[2] = 1;
-        if(n < 3) {
-            System.out.println(dp[n]);
-            System.exit(0);
-        }
-        dp[3] = 1;
-        if(n == 3) {
-            System.out.println(dp[n]);
-            System.exit(0);
-        }
-        
 
-        for(int i = 4; i < n + 1; i++) {
+        for(int i = 3; i < n + 1; i++) {
             dp[i] = dp[i - 2] + dp[i - 3];
         }
 
