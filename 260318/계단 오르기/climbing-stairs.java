@@ -25,15 +25,6 @@ public class Main {
             dp[i] = dp[i - 2] + dp[i - 3];
         }
 
-        // for(int i = 0; i <= n; i++) {
-        //     System.out.print(dp[i] + " ");
-        // }
-        // System.out.println();
-
-        if(dp[n] == 0) {
-            System.out.println(0);
-        } else {
             System.out.println(dp[n] % 10007);
-        }
     }
 }
