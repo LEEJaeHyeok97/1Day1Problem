@@ -18,9 +18,9 @@ public class Main {
         dp[3] = 1;
 
         for(int i = 4; i < n + 1; i++) {
-            dp[i] = (dp[i - 2] + dp[i - 3]) % 10007;
+            dp[i] = (dp[i - 2] + dp[i - 3]);
         }
 
-        System.out.println(dp[n]);
+        System.out.println(dp[n]  % 10007);
     }
 }
