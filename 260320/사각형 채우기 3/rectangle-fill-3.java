@@ -15,7 +15,7 @@ public class Main {
         memo[2] = 7;
         memo[3] = 22;
         for(int i = 4; i <= n; i++) {
-            memo[i] = (memo[i-4] * 2) + (memo[i-3] * 2) + (memo[i-2] * 3) + (memo[i-1] * 2);
+            memo[i] = ((memo[i-4] * 2) + (memo[i-3] * 2) + (memo[i-2] * 3) + (memo[i-1] * 2)) % 1000000007;
         }
         
         System.out.println(memo[n]);
