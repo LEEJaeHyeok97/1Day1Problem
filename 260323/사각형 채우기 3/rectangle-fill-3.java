@@ -11,7 +11,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        int[] memo = new int[1001];
+        long[] memo = new long[1001];
         memo[0] = 1;
         memo[1] = 2;
         for(int i = 2; i <= n; i++) {
