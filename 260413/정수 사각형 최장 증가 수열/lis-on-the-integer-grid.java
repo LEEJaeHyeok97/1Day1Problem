@@ -7,48 +7,44 @@ public class Main {
 
     static int n;
     static int[][] grid;
-    static boolean[][] visited;
-    static int cnt = 0;
+    static int[][] dp;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         grid = new int[n][n];
+        dp = new int[n][n];
+
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 grid[i][j] = sc.nextInt();
             }
         }
 
+        int ans = 0;
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < n; j++) {
-                visited = new boolean[n][n];
-                visited[i][j] = true;
-                dfs(i, j, 1);
+                ans = Math.max(ans, dfs(i, j));
             }
         }
         
-        System.out.println(cnt);
+        System.out.println(ans);
     }
 
-    static void dfs(int x, int y, int tmp) {
-        cnt = Math.max(cnt, tmp);
+    static int dfs(int x, int y) {
+        if(dp[x][y] != 0) return dp[x][y];
+
+        dp[x][y] = 1;
 
         for(int i = 0; i < 4; i++) {
             int nx = x + dx[i];
             int ny = y + dy[i];
 
-            if(canGo(nx, ny, grid[x][y]) && !visited[nx][ny]) {
-                visited[nx][ny] = true;
-                dfs(nx, ny, tmp + 1);
-                visited[nx][ny] = false;
+            if(inRange(nx, ny) && grid[nx][ny] > grid[x][y]) {
+                dp[x][y] = Math.max(dp[x][y], dfs(nx, ny)+ 1);
             }
         }
-    }
 
-    static boolean canGo(int x, int y, int prev) {
-        if(!inRange(x, y)) return false;
-        if(grid[x][y] <= prev) return false;
-        return true;
+        return dp[x][y];
     }
 
     static boolean inRange(int x, int y) {
