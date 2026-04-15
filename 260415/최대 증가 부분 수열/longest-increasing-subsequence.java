@@ -34,9 +34,7 @@ public class Main {
 
     static void initialize() {
         for(int i = 0; i < n; i++) {
-            dp[i] = MIN_VALUE;
+            dp[i] = 1;
         }
-
-        dp[0] = 1;
     }
 }
