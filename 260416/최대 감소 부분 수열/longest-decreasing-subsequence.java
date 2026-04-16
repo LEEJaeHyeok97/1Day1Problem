@@ -17,7 +17,7 @@ public class Main {
         initialize();
 
         for(int i = 1; i < n; i++) {
-            for(int j = 0; j < n; j++) {
+            for(int j = 0; j < i; j++) {
                 if(arr[i] < arr[j]) {
                     dp[i] = Math.max(dp[j] + 1, dp[i]);
                 }
