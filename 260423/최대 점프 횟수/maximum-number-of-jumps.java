@@ -15,7 +15,7 @@ public class Main {
 
         dp = new int[n];
         for(int i = 0; i < n; i++) {
-            dp[i] = 0;
+            dp[i] = -1;
         }
         dp[0] = 0;
         initialize();
@@ -24,7 +24,15 @@ public class Main {
             System.exit(0);
         }
 
-        System.out.println(dp[n - 1]);
+        if(dp[n - 1] == -1) {
+            int maxValue = Integer.MIN_VALUE;
+            for(int i = 0; i < n; i++) {
+                maxValue = Math.max(maxValue, dp[i]);
+            }
+            System.out.println(maxValue);
+        } else {
+            System.out.println(dp[n - 1]);
+        }
     }
 
     static void initialize() {
@@ -33,10 +41,6 @@ public class Main {
                 if(i <= j + arr[j]) {
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
-            }
-            if(dp[i] == 0) {
-                System.out.println(dp[i - 1]);
-                System.exit(0);
             }
         }
     }
