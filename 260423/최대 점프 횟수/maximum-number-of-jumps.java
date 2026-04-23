@@ -35,7 +35,8 @@ public class Main {
                 }
             }
             if(dp[i] == 0) {
-                return;
+                System.out.println(dp[i - 1]);
+                System.exit(0);
             }
         }
     }
