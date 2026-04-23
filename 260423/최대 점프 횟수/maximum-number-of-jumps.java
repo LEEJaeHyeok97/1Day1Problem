@@ -19,6 +19,10 @@ public class Main {
         }
         dp[0] = 0;
         initialize();
+        if(n == 1) {
+            System.out.println(0);
+            System.exit(0);
+        }
 
         for(int i = 1; i < n; i++) {
             if(dp[i] == 0) {
@@ -26,6 +30,7 @@ public class Main {
                 System.exit(0);
             }
         }
+
         System.out.println(dp[n - 1]);
     }
 
