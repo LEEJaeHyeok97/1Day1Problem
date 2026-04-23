@@ -24,13 +24,6 @@ public class Main {
             System.exit(0);
         }
 
-        for(int i = 1; i < n; i++) {
-            if(dp[i] == 0) {
-                System.out.println(dp[i - 1]);
-                System.exit(0);
-            }
-        }
-
         System.out.println(dp[n - 1]);
     }
 
@@ -40,6 +33,9 @@ public class Main {
                 if(i <= j + arr[j]) {
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
+            }
+            if(dp[i] == 0) {
+                return;
             }
         }
     }
