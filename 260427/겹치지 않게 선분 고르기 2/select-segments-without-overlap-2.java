@@ -18,7 +18,7 @@ class Segment implements Comparable<Segment> {
     @Override
     public int compareTo(Segment s) {
         // x1을 기준으로 오름차순 정렬을 진행합니다.
-        return this.x1 - this.x1;
+        return this.x1 - s.x1;
     }
 }
 public class Main {
