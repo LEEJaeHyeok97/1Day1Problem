@@ -6,7 +6,7 @@ public class Main {
 
     static int n, k;
     static int[] arr;
-    static HashMap<Integer, Integer> map = new HashMap<>();
+    static HashMap<Integer, Integer> freq = new HashMap<>();
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
@@ -14,18 +14,22 @@ public class Main {
         arr = new int[n];
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
-            map.put(i, map.getOrDefault(i, 0) + 1);
+            if(!freq.containsKey(arr[i]))
+                freq.put(arr[i], 1);
+            else
+                freq.put(arr[i], freq.get(arr[i]) + 1);
         }
 
         int ans = 0;
         for(int i = 0; i < n; i++) {
-            for(int j = i + 1; j < n; j++) {
-                for(int s = j + 1; s < n; s++) {
-                    int value = arr[i] + arr[j] + arr[s];
-                    if(value == k) {
-                        ans++;
-                    }
-                }
+            if(!freq.containsKey(arr[i]))
+                freq.put(arr[i], -1);
+            else
+                freq.put(arr[i], freq.get(arr[i]) - 1);
+
+            for(int j = 0; j < i; j++) {
+                if(freq.containsKey(k - arr[i] - arr[j]))
+                    ans += freq.get(k - arr[i] - arr[j]);
             }
         }
 
