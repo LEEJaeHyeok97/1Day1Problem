@@ -1,4 +1,6 @@
 import java.util.Scanner;
+
+// K개의 원소의 합 중 가장 큰 값
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -16,10 +18,15 @@ public class Main {
         }
 
         int ans = Integer.MIN_VALUE;
-for (int i = 0; i + k - 1 < n; i++) {
-    int sum = prefixSum[i + k - 1] - (i == 0 ? 0 : prefixSum[i - 1]);
-    ans = Math.max(ans, sum);
-}
+        for (int i = 0; i + k - 1 < n; i++) {
+            int sum = 0;
+            if(i == 0) {
+                sum = prefixSum[i + k - 1] - 0;
+            } else {
+                sum = prefixSum[i + k - 1] - prefixSum[i] + arr[i];
+            }
+            ans = Math.max(ans, sum);
+        }
 
         System.out.println(ans);
     }
