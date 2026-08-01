@@ -20,7 +20,7 @@ public class Main {
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
 
-        Map<Integer, Node> nodes = new HashMap<>(n * 2);
+        Map<Integer, Node> nodes = new HashMap<>();
 
         st = new StringTokenizer(br.readLine());
         Node firstNode = new Node(Integer.parseInt(st.nextToken()));
