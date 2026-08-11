@@ -7,16 +7,16 @@ public class Main {
         int n = sc.nextInt();
         int q = sc.nextInt();
 
-        HashMap<Integer, Integer> map = new HashMap<>();
+        TreeMap<Integer, Integer> map = new TreeMap<>();
         TreeSet<Integer> s = new TreeSet<>();
         int[] points = new int[n];
         for (int i = 0; i < n; i++) {
             points[i] = sc.nextInt();
         }
 
-        Arrays.sort(points);
-        for(int i = 0; i < n; i++) {
-            map.put(points[i], i+1);
+        int cnt = 1;
+        for(int point : points) {
+            map.put(point, cnt++);
         }
 
         for (int i = 0; i < q; i++) {
