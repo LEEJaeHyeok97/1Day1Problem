@@ -12,14 +12,17 @@ public class Main {
         }
 
         Arrays.sort(arr);
-        int left = 0, right = n - 1;
-        long ans = Long.MAX_VALUE;
-
-        while(left < right) {
-            long sum = arr[left] + arr[right];
-            ans = Math.min(ans, Math.abs(sum));
-            if(sum < 0) left++;
-            else right--;
+        int ans = Integer.MAX_VALUE;
+        int i = 0;
+        int j = n-1;
+        // -123 1 1 2 2 124
+        while(i < j) {
+            ans = Math.min(ans, Math.abs(arr[i] + arr[j]));
+            if(arr[i] + arr[j] < 0) {
+                i++;
+            } else if(arr[i] + arr[j] > 0) {
+                j--;
+            } else break;
         }
 
         System.out.println(ans);
