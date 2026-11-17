@@ -1,4 +1,4 @@
 SELECT animal_id, name
 FROM ANIMAL_INS
-WHERE name like '%el%' AND animal_type = 'Dog'
+WHERE LOWER(name) like '%el%' AND animal_type = 'Dog'
 ORDER BY name, animal_id
